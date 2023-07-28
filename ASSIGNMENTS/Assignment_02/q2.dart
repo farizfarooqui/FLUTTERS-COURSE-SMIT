@@ -6,6 +6,7 @@ void main() {
 
   List<String> Weekdays = [];
   Weekdays.add('Monday');
+  print(Weekdays);
   Weekdays.addAll(['Tuesday' ,'Wednesday','Thurdays','Friday','Saturday','Sunday']);
   print(Weekdays);
 
