@@ -18,6 +18,8 @@ void main() {
   var q = f++;
   var w = -1;
   var result = (w++ + --d);
+  print(result);
+  print(q);
 
   //  0 + -1 = -1
 

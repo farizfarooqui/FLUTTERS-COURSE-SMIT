@@ -12,4 +12,5 @@ print(student_name);
 student_name.reversed;
 print(student_name.reversed);
 List student_name_dec = student_name.reversed.toList();
+print(student_name_dec);
 }

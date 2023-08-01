@@ -3,8 +3,9 @@ import 'dart:io';
 void main () {
   var email;
   var password;
+  int i =0;
   bool log = false;
-  while (log==false) {
+  while (log==false && i<3) {
   stdout.write('Enter your email :');
   email = stdin.readLineSync();
   stdout.write('Enter your Password :');
@@ -15,7 +16,10 @@ void main () {
   }
   else {
         print('Login Failed');
+        i++;
+        if (i==3) {
+          print('3 Failed attemps, Try Again Later !');
+        }
   }
   }
-
 }
