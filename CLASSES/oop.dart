@@ -3,6 +3,10 @@ void main () {
   print(student_info());
   print(obj.name);
   obj.View();
+  student_info obj1 = student_info();
+  obj1.name= 'Hello';
+  obj1.View();
+  obj.View();
 }
 class student_info {
   var name= 'Fariz';
