@@ -20,6 +20,15 @@ class student_info {
     print("Roll no : $rollno");
     print("Section : $section");
     }
+    display() {
+    print("Name: $name");
+    print("Age: $age");
+    print("Roll no : $rollno");
+    print("Section : $section");
+    }
   
   
   }
+  
+
+  
