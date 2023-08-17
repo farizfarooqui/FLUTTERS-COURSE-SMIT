@@ -51,6 +51,16 @@ class whatsapp2 extends StatelessWidget {
             icon: const Icon(Icons.more_vert),
             )
           ],
+          bottom: const TabBar(tabs: [
+              Tab( icon: Icon(Icons.add_a_photo_outlined),),
+              // Tab( icon: Icon(Icons.chat),),
+              Tab(text: 'Chat',),
+              Tab(text: 'Status',),
+              Tab(text: 'Call',),
+
+              // Tab( icon: Icon(Icons.ads_click_rounded),),
+              // Tab(icon: Icon(Icons.add_ic_call),)
+          ])
         ),
         body: ListView.builder(
           itemCount:arrOfNames.length,
