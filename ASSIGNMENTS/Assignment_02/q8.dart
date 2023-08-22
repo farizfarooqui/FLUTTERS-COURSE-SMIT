@@ -14,6 +14,7 @@ void main () {
       {'name': 'Sarah', 'eligible': true},
       {'name': 'Tom', 'eligible': false},
       ];
+      
 //usersEligibility.removeWhere((i) => i['eligible'] == false);
 usersEligibility.retainWhere((i) => i['eligible'] == true);
 print(usersEligibility);
