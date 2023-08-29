@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_panda_ui/fast_food.dart';
+import 'package:food_panda_ui/popular_res.dart';
 
 class foodPanda extends StatefulWidget {
   const foodPanda({super.key});
@@ -49,10 +51,8 @@ class _foodPandaState extends State<foodPanda> {
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
-                          
                           color:  Colors.white,
                           style: BorderStyle.solid
-                          
                         ),
                       )
                     ),
@@ -62,7 +62,7 @@ class _foodPandaState extends State<foodPanda> {
             ),
             Container(
               margin:const EdgeInsets.all(20),
-              child: const Image(image: AssetImage('assets/images/panda2.jpg')),
+              child: const Image(image: AssetImage('assets/images/front_page.jpg')),
             ),
             const ListTile(
               title: Text('Fast Food', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
@@ -73,47 +73,70 @@ class _foodPandaState extends State<foodPanda> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
-                    margin:const EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
-                    child: Image.asset('assets/images/panda_row1.png'),
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> fastfood()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> fastfood()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> fastfood()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> fastfood()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
-                  ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> fastfood()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
                 ],
               ),
@@ -127,47 +150,70 @@ class _foodPandaState extends State<foodPanda> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
-                    margin:const EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
-                    child: Image.asset('assets/images/panda_row1.png'),
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> popularRes()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                 ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> popularRes()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> popularRes()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> popularRes()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
-                  ),
-                  Container(
-                    child: Image.asset('assets/images/panda_row1.png'),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.amber,
-                    height: 200,
-                    width: 200,
+                  ElevatedButton(
+                    style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () { 
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> popularRes()));
+                     },
+                    child: Container(
+                      margin:const EdgeInsets.all(10),
+                      color: Colors.amber,
+                      height: 200,
+                      width: 200,
+                      child: Image.asset('assets/images/panda_row1.png'),
+                    ),
                   ),
                 ],
               ),
