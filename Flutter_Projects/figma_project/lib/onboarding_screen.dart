@@ -1,4 +1,3 @@
-import 'package:figma_project/home_view.dart';
 import 'package:figma_project/landing_screen.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';

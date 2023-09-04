@@ -1,6 +1,42 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
+
+class SubTotalWidget extends StatelessWidget {
+  const SubTotalWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      child: Text('Subtotal \nDelivery \nTotal \n'),
+    );
+  }
+}
+
+
+  Widget buildButtonRow(List<String> items) {
+    return Row(
+      children: items.map((item) {
+        return ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+          ),
+          onPressed: () {},
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(0),
+            color: AppColors.black_45,
+            width: 150,
+            height: 200,
+            child: Text(item),
+          ),
+        );
+      }).toList(),
+    );
+  }
 
 SearchBarr ( HintText ) {
   return 

@@ -3,10 +3,8 @@ import 'package:figma_project/favorites_view.dart';
 import 'package:figma_project/home_view.dart';
 import 'package:figma_project/more_view.dart';
 import 'categories_view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'colors.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'cart_view.dart';
 
 class LandingPageView extends StatefulWidget {
   const LandingPageView({super.key});
@@ -29,16 +27,20 @@ class _LandingPageViewState extends State<LandingPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 242, 200, 214),
+      backgroundColor: AppColors.black_1,
       appBar: AppBar(
         shadowColor: Colors.transparent,
         backgroundColor: AppColors.blueShade_1,
         title: const Text('Hey, Fariz', textAlign: TextAlign.left),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_bag_outlined))],
+        actions: [IconButton(onPressed: () { 
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const MyCard()));
+        }, icon: const Icon(Icons.shopping_bag_outlined))],
       ),
       
       body: tabs[_currentIndex],
 
+      
       //bottom Navigation Bar
       bottomNavigationBar : BottomNavigationBar(items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),

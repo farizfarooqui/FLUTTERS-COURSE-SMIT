@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:figma_project/colors.dart';
 import 'package:figma_project/onboarding_screen.dart';
 import 'package:flutter/material.dart';
