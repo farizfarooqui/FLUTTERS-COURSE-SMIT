@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
-List RestaurantsArr = ['KFC Mellennium','Mcdonalds','Allah wala Biryani','OPTP-Dollmen','Al-Naseeb','KaBabjees','Broadway Pizza','Burger Bar'];
-
+List CategoriesArr = ['KFC','Mcdonalds','Allah wala Biryani','OPTP','Al-Naseeb','Broadway Pizza','Starbucks','Kababjees'];
+List CategoriesItemsURLArr = ['assets/images/categories/kfc.png',
+                              'assets/images/categories/mc.jpg' ,
+                              'assets/images/categories/allahwalabiryani.jpg',
+                              'assets/images/categories/optp.jpg',
+                              'assets/images/categories/alnaseeb.jpg',
+                              'assets/images/categories/broadway.jpg',
+                              'assets/images/categories/starbucks.jpg'
+                              ];
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key});
@@ -20,7 +27,7 @@ class _CategoryPageState extends State<CategoryPage> {
           children: [
             // Header text
             Container(
-              margin: EdgeInsets.only(bottom: 6),
+              margin: const EdgeInsets.only(bottom: 6),
               padding: const EdgeInsets.only(left: 20, top: 20, bottom: 30),
               color: AppColors.blueShade_1,
               width: double.infinity,
@@ -39,22 +46,38 @@ class _CategoryPageState extends State<CategoryPage> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, 
                 ),
-                itemCount: RestaurantsArr.length,
+                itemCount: CategoriesItemsURLArr.length,
                 padding: const EdgeInsets.only(left: 15,right: 15,top: 20,bottom: 20),
                 itemBuilder: (BuildContext context, int index)  {
                   return Container(
-                    margin: EdgeInsets.only(top: 4,left: 10,right: 10,bottom: 12),
+                    margin: const EdgeInsets.only(top: 4,left: 10,right: 10,bottom: 12),
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(AppColors.black_45)
+                        backgroundColor: MaterialStatePropertyAll(AppColors.black_1)
                       ),
                       onPressed: () {},
                       child: Container(
-                        color: AppColors.black_45,
+                        color: Colors.transparent,
                         height: 158,
-                        child: Center(
-                          child: Text(RestaurantsArr[index]),
-                        ),
+                        child: Stack(
+                              children: [
+                                Container(
+                                  color: AppColors.black_1,
+                                  width: 130,
+                                  child: Image.asset(CategoriesItemsURLArr[index],)
+                                ),
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(CategoriesArr[index],
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColors.blueShade_1,
+                                    fontWeight: FontWeight.w700,
+                                    backgroundColor:AppColors.black_20
+                                  ),),
+                                ),
+                              ],
+                            ),
                       ),
                     ),
                   );

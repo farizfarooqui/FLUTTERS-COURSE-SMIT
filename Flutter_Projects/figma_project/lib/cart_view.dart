@@ -1,9 +1,8 @@
 import 'package:figma_project/colors.dart';
+import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'widgets.dart';
-
-
+import 'home_view.dart';
 
 
 class MyCard extends StatefulWidget {
@@ -15,15 +14,15 @@ class MyCard extends StatefulWidget {
 
 class _MyCardState extends State<MyCard> {
   @override
-  List CardItems =["Bananas", "Biryani" , "Haleem", "Haleem", "Haleem", "Haleem", "Haleem", "Haleem"];
   
+
   Widget build(BuildContext context) {
     return  Scaffold(
       body: SafeArea(child: 
       Column( 
         children: [
 
-        //banner and back button
+        //list tile and banner
          Stack(
            children: [
               Container(
@@ -42,7 +41,10 @@ class _MyCardState extends State<MyCard> {
                    color: AppColors.black_100,
                    ),
                 ),
-                title: const Text('Shopping Cart'),
+                title: const Text('Shopping Cart',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500
+                ),),
               )
             ],
          ),
@@ -61,50 +63,37 @@ class _MyCardState extends State<MyCard> {
          //items list
          Expanded(
            child: ListView.builder(
+            reverse: true,
             padding: const EdgeInsets.all(20),
-            itemCount: CardItems.length,
+            itemCount: MyCardItems.length,
             itemBuilder: (BuildContext context, int index) {
             return ListTile(
+              
               leading: SvgPicture.asset('assets/images/card/listimage.svg'),
-              title: Text(CardItems[index]),
-              subtitle: Text('7.90'),
+              title: Text(MyCardItems[index]),
+              subtitle: const Text(' \$5'),
               trailing: 
-              IconButton(onPressed: () {}, icon:const  Icon(Icons.add_circle_outlined)),
+              IconButton(onPressed: () {
+                setState(() {
+                  MyCardItems.removeAt(index);
+                });
+              }, icon: SvgPicture.asset('assets/images/icon/minus.svg')),
             );
            }),
          ),
 
-         //bottom subtotal widget
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(30),
-              //   child: Container(
-              //     padding: EdgeInsets.only(left: 20,right: 20),
-              //     margin: EdgeInsets.only(left: 11,right: 11),
-              //     height: 180,
-              //     width: double.infinity,
-              //     color: AppColors.black_20,
-              //     child: Column(
-              //       children: [
-              //         Text("Subtotal"),
-              //         Text("Delivery"),
-              //         Text("Total"),
-              //       ],
-              //     )
-              //     ),
-              // ),
 
+              //subtotal
               Container(
                   margin: const EdgeInsets.only(left: 15,right: 15),
-                  height: 180,
+                  height: 210,
                   width: double.infinity,
                   color: AppColors.black_1,
                   child: ClipRRect(
                     borderRadius: const BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
-                    child: Expanded(
-                      child: Container(
-                        color: AppColors.black_45,
-                        child: const Text('Subtotal \nDelivery \nTotal \n')
-                      ),
+                    child: Container(
+                      color: AppColors.black_20,
+                      child:const ProceedBotton(),
                     ),
                   )
                   ),

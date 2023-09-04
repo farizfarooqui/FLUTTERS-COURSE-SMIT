@@ -11,3 +11,48 @@ class MyData {
   List DealsArr = ['Happy','Hojao','yup','Hello','Hey','Hello','Hey','Hello','Hey','Hello'];
 
 }
+
+class Restaurant {
+  final String name;
+  final List<Product> products;
+
+  Restaurant({required this.name, required this.products});
+}
+
+class Product {
+  final int id;
+  final String name;
+  final double price;
+
+  Product({required this.id, required this.name, required this.price});
+}
+
+ List RestaurantsArr = [
+  Restaurant(
+    name: "KFC",
+    products: [
+      Product(id: 1, name: "Zinger", price: 10.99),
+      Product(id: 2, name: "Broast", price: 9.99),
+      Product(id: 3, name: 'Drink', price: 5.99)
+      // Add more products for Restaurant 1
+    ],
+  ),
+  Restaurant(
+    name: "Allah wala biryani",
+    products: [
+      Product(id: 3, name: "Single Biryani", price: 12.99),
+      Product(id: 4, name: "Drink", price: 11.99),
+      // Add more products for Restaurant 2
+    ],
+  ),
+  // Add more restaurants as needed
+];
+Map<int, int> cart = {};
+
+void addToCart(int productId) {
+  if (cart.containsKey(productId)) {
+    cart[productId]= 0+1;
+  } else {
+    cart[productId] = 1;
+  }
+}

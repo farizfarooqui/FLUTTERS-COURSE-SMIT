@@ -1,20 +1,77 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'colors.dart';
+import 'home_view.dart';
+import 'cart_view.dart';
 
 
-class SubTotalWidget extends StatelessWidget {
-  const SubTotalWidget({super.key});
+class ProceedBotton extends StatelessWidget {
+  const ProceedBotton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.bottomLeft,
-      child: Text('Subtotal \nDelivery \nTotal \n'),
+    return Stack(
+      children: [
+        Column(
+          children: [
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.only(left: 50,top: 15),
+              child: Text('Subtotal                                                   ${MyCardItems.length*5} \$',
+              style: TextStyle(
+                fontSize: 15,
+                color: AppColors.black_90,
+              ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.only(left: 50,top: 15),
+              child: Text('Delivery                                                    ${MyCardItems.length} \$',
+              style: TextStyle(
+                fontSize: 15,
+                color: AppColors.black_90,
+              ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const  EdgeInsets.only(left: 50,top: 15),
+              child: 
+              Text('Total                                                         ${MyCardItems.length*5+1} \$',
+              style: TextStyle(
+                fontSize: 15,
+                color: AppColors.black_90,
+              ),
+              ),
+            ),
+          ],
+        ), 
+        
+        Container(
+          margin: const EdgeInsets.only(top: 110,left: 30),
+          width: 320,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+              alignment: Alignment.center,
+              padding:const MaterialStatePropertyAll(EdgeInsets.all(8)),
+              backgroundColor: MaterialStateProperty.all(AppColors.blueShade_2),
+            ),
+            onPressed: () {},
+            child: Container(
+              height: 60,
+              child: Center(child: const Text('Proceed to checkout',
+              style: TextStyle(
+                fontSize: 16
+              ),))),
+          ),
+        ),
+        
+      ],
     );
   }
 }
+
 
 
   Widget buildButtonRow(List<String> items) {

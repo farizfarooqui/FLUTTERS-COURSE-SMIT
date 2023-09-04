@@ -1,11 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:figma_project/categories_view.dart';
+import 'package:figma_project/cart_view.dart';
 import 'package:figma_project/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'product.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
 
-
+ List MyCardItems = [];
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -24,9 +25,11 @@ class _HomeViewState extends State<HomeView> {
   List <String> SliderImagesArr = ['assets/images/slider/slider1.jpg','assets/images/slider/slider2.png','assets/images/slider/slider3.png','assets/images/slider/slider5.png'];
 
   List RecommendedItemsArr = ['Biryani','Haleem','Karhai','Nihari','Burger'];
-  List RestaurantsArr = ['KFC Mellennium','Mcdonalds','Allah wala Biryani','OPTP-Dollmen','Al-Naseeb','KaBabjees','Broadway Pizza'];
+  List RecommendedItemsURLArr = ['assets/images/recommend/biryani.jpg','assets/images/recommend/haleem.jpg','assets/images/recommend/karhai.jpg','assets/images/recommend/nihari.jpg','assets/images/recommend/burger.jpg'];
 
-  late String SelectedProduct;
+  List DealArr =['Azadi Deal' , 'Weekend Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
+  List DealsURLArr = ['assets/images/deals/1.jpg','assets/images/deals/2.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,23 +74,43 @@ class _HomeViewState extends State<HomeView> {
                     SizedBox(
                       height: 200 ,
                       child: ListView.builder(
-                        itemCount: RecommendedItemsArr.length,
+                        itemCount: RecommendedItemsURLArr.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
                         return Container(
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
                           child: ElevatedButton(style:ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(AppColors.black_45),),
+                            backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
                             onPressed: () {
-                              String SelectedProduct = RecommendedItemsArr[index];
                               Navigator.push( context,
                               MaterialPageRoute(builder: (context) => const MyProduct()),
                                             );},
-                            child: Container(
-                              color: AppColors.black_45,
-                              width: 130,
-                              child: Text(RecommendedItemsArr[index],
-                              textAlign: TextAlign.justify)
+                            child: Stack(
+                              children: [
+                                Container(
+                                  color: AppColors.black_1,
+                                  // width: 130,
+                                  child: Image.asset(RecommendedItemsURLArr[index],)
+                                ),
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(RecommendedItemsArr[index],
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColors.blueShade_2,
+                                    fontWeight: FontWeight.w700,
+                                    backgroundColor:AppColors.black_20
+                                  ),),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(left: 120,top: 150),
+                                  // alignment: Alignment.topRight,
+                                  child: IconButton(onPressed: (){
+                                    MyCardItems.add(RecommendedItemsArr[index]);
+                                    // MyCard.add(RecommendedItemsArr[index]);
+                                  }, icon: const Icon(Icons.add_circle_sharp,color: Color.fromARGB(255, 21, 96, 161)),)
+                                )
+                              ],
                             ),
                           ),
                         );
@@ -98,31 +121,50 @@ class _HomeViewState extends State<HomeView> {
                 //Deals Text
                 Container(
                   margin: const EdgeInsets.only(top: 20),
-                  child: const TileWidget(text: 'Shop By Category'),
+                  child: const TileWidget(text: 'Combos and Deals'),
                 ),
                     
                     
-                  //Second List
+                  //Deals list
                     SizedBox(
                       height: 200,
                       child: ListView.builder(
-                        itemCount: RestaurantsArr.length,
+                        itemCount: DealArr.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
                         return Container(
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
                           child: ElevatedButton(style:ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(AppColors.black_45),),
+                            backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
                             onPressed: () {
                               Navigator.push( context,
-                              MaterialPageRoute(builder: (context) => const CategoryPage()),
+                              MaterialPageRoute(builder: (context) => const MyProduct()),
                                             );},
-                            child: Container(
-                              color: AppColors.black_45,
-                              width: 130,
-                              child: Text(RestaurantsArr[index],
-                              textAlign: TextAlign.justify,
-                              ),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  color: AppColors.black_1,
+                                  // width: 130,
+                                  child: Image.asset(DealsURLArr[index],)
+                                ),
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(DealArr[index],
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColors.blueShade_2,
+                                    fontWeight: FontWeight.w700,
+                                    backgroundColor:AppColors.black_20
+                                  ),),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(left: 160,top: 150),
+                                  // alignment: Alignment.bottomRight,
+                                  child: IconButton(onPressed: (){
+                                    MyCardItems.add(DealArr[index]);
+                                  }, icon: const Icon(Icons.add_circle_sharp,color: Color.fromARGB(255, 21, 96, 161),),)
+                                )
+                              ],
                             ),
                           ),
                         );

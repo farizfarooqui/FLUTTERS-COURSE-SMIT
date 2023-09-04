@@ -99,7 +99,8 @@ List SubTitleArr = ['Theres something for everyone to enjoy with Sweet Shop Favo
              ),
            ),
 
-           Padding(//Slider
+            //inicator
+           Padding(
              padding: const EdgeInsets.only(bottom: 110,right: 186),
              child: SmoothPageIndicator(
               controller: SLiderKaController, 
