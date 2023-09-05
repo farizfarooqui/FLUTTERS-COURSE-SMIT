@@ -18,7 +18,7 @@ class _MyProductState extends State<MyProduct> {
         SizedBox(
           height: MediaQuery.of(context).size.height*0.25,
           child: Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             child: Center(
               child: SvgPicture.asset('assets/images/card/listimage.svg',
               height: 300,),

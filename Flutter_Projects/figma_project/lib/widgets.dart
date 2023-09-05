@@ -1,3 +1,4 @@
+import 'package:figma_project/checkout.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'home_view.dart';
@@ -37,7 +38,7 @@ class ProceedBotton extends StatelessWidget {
               alignment: Alignment.topLeft,
               padding: const  EdgeInsets.only(left: 50,top: 15),
               child: 
-              Text('Total                                                         ${MyCardItems.length*5+1} \$',
+              Text('Total                                                         ${MyCardItems.length*5} \$',
               style: TextStyle(
                 fontSize: 15,
                 color: AppColors.black_90,
@@ -57,10 +58,12 @@ class ProceedBotton extends StatelessWidget {
               padding:const MaterialStatePropertyAll(EdgeInsets.all(8)),
               backgroundColor: MaterialStateProperty.all(AppColors.blueShade_2),
             ),
-            onPressed: () {},
+            onPressed: () {
+                           Navigator.push(context,  MaterialPageRoute(builder: (context) => const CheckOut()) );
+            },
             child: Container(
               height: 60,
-              child: Center(child: const Text('Proceed to checkout',
+              child: const Center(child: Text('Proceed to checkout',
               style: TextStyle(
                 fontSize: 16
               ),))),
