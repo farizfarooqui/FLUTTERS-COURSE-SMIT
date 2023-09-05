@@ -1,3 +1,10 @@
+  List RecommendedItemsArr = ['Biryani','Haleem','Karhai','Nihari','Burger'];
+  List RecommendedItemsURLArr = ['assets/images/recommend/biryani.jpg','assets/images/recommend/haleem.jpg','assets/images/recommend/karhai.jpg','assets/images/recommend/nihari.jpg','assets/images/recommend/burger.jpg'];
+
+  List DealArr =['Azadi Deal' , 'Weekend Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
+  List DealsURLArr = ['assets/images/deals/1.jpg','assets/images/deals/2.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
+
+
 class MyData {
   List<String> addressArr = ['Green Way 3000, Sylhet', 'Halt road 201, Europe', 'Halt road 201, Asia', 'Halt road 201, Africa'];
   String addressDropDownValue = 'Green Way 3000, Sylhet';
