@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
+import 'restaurant.dart';
 
 List CategoriesArr = ['KFC','Mcdonalds','Allah wala Biryani','OPTP','Al-Naseeb','Broadway Pizza','Starbucks','Kababjees'];
 List CategoriesItemsURLArr = ['assets/images/categories/kfc.png',
@@ -13,6 +14,7 @@ List CategoriesItemsURLArr = ['assets/images/categories/kfc.png',
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key});
+
 
   @override
   State<CategoryPage> createState() => _CategoryPageState();
@@ -55,7 +57,11 @@ class _CategoryPageState extends State<CategoryPage> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(AppColors.black_1)
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                              String restName = CategoriesArr[index]; // Get the restaurant name
+                              Navigator.push( context,MaterialPageRoute( builder: (context) =>
+                               Restaurant(restaurantName: restName), ), );
+                            },
                       child: Container(
                         color: Colors.transparent,
                         height: 158,

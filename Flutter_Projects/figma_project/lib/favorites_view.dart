@@ -1,3 +1,4 @@
+import 'package:figma_project/colors.dart';
 import 'package:flutter/material.dart';
 
 class Favorite_view extends StatefulWidget {
@@ -11,7 +12,19 @@ class _Favorite_viewState extends State<Favorite_view> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Center(child: Text('Helo'),),
+      body: Column(
+        children: [
+          ListTile(
+            tileColor: AppColors.black_20,
+            title: Text('No Favorite Items',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+
+            ),),
+          )
+        ],
+      ),
     );
   }
 }

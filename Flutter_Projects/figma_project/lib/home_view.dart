@@ -81,10 +81,7 @@ class _HomeViewState extends State<HomeView> {
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
                           child: ElevatedButton(style:ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
-                            onPressed: () {
-                              Navigator.push( context,
-                              MaterialPageRoute(builder: (context) => const MyProduct()),
-                                            );},
+                            onPressed: () {},
                             child: Stack(
                               children: [
                                 Container(
@@ -136,10 +133,7 @@ class _HomeViewState extends State<HomeView> {
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
                           child: ElevatedButton(style:ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
-                            onPressed: () {
-                              Navigator.push( context,
-                              MaterialPageRoute(builder: (context) => const MyProduct()),
-                                            );},
+                            onPressed: () {},
                             child: Stack(
                               children: [
                                 Container(
