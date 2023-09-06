@@ -67,17 +67,23 @@ class _MyCardState extends State<MyCard> {
             padding: const EdgeInsets.all(20),
             itemCount: MyCardItems.length,
             itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              
-              leading: SvgPicture.asset('assets/images/card/listimage.svg'),
-              title: Text(MyCardItems[index]),
-              subtitle: const Text(' \$5'),
-              trailing: 
-              IconButton(onPressed: () {
-                setState(() {
-                  MyCardItems.removeAt(index);
-                });
-              }, icon: SvgPicture.asset('assets/images/icon/minus.svg')),
+            return Container(
+              margin: const EdgeInsets.only(bottom: 6),
+              color: AppColors.black_10,
+              child: ListTile(
+                leading: SvgPicture.asset('assets/images/card/listimage.svg'),
+                title: Text(MyCardItems[index]),
+                subtitle: const Text(' \$5'),
+                trailing: 
+                IconButton(onPressed: () {
+                  setState(() {
+                    MyCardItems.removeAt(index);
+                  });
+                }, icon: SvgPicture.asset('assets/images/icon/minus.svg',
+                         color: Colors.red,
+                )
+               ),
+              ),
             );
            }),
          ),

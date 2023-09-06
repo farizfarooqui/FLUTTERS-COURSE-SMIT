@@ -31,7 +31,7 @@ List counter = ['counter','counter','counter','counter','counter','counter','cou
           ),
 
           Expanded(
-            child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                                     itemCount: counter.length,
                                     itemBuilder: (BuildContext , int index) {
                                       return Stack(

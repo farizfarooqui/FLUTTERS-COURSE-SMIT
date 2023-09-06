@@ -176,7 +176,7 @@ class _CheckOutState extends State<CheckOut> {
 
           //place order button
           Container(
-            margin: EdgeInsets.only(bottom: 40),
+            margin: const EdgeInsets.only(bottom: 40),
             child: ElevatedButton(
               style: 
               ButtonStyle(

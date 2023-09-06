@@ -38,7 +38,7 @@ class ProceedBotton extends StatelessWidget {
               alignment: Alignment.topLeft,
               padding: const  EdgeInsets.only(left: 50,top: 15),
               child: 
-              Text('Total                                                         ${MyCardItems.length*5} \$',
+              Text('Total                                                         ${MyCardItems.length*5+1} \$',
               style: TextStyle(
                 fontSize: 15,
                 color: AppColors.black_90,
