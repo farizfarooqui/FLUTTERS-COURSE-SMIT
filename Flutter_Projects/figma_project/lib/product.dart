@@ -76,14 +76,25 @@ class _MyProductState extends State<MyProduct> {
                   controller: scrollController,
                   child: Column(
                     children: [
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        color: Colors.amber,
-                        width: double.maxFinite,
-                        child: const Text('Product Name',
-                        style: TextStyle(
-                          fontSize: 60
-                        ),),
+                      Stack(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(20),
+                            color: Colors.amber,
+                            width: double.maxFinite,
+                            child: const Text('Product Name',
+                            style: TextStyle(
+                              fontSize: 60
+                            ),),
+                          ),
+                          Container(
+                            height: 6,
+                            width: 60,
+                            color: Colors.grey,
+                            margin: const EdgeInsets.only(top: 10,left: 170),
+                            alignment: Alignment.center,
+                          )
+                        ],
                       ),
                       Container(
                         padding: EdgeInsets.all(20),
@@ -104,6 +115,17 @@ class _MyProductState extends State<MyProduct> {
                         padding: EdgeInsets.all(20),
                         color: Color.fromARGB(255, 169, 160, 125),
                         child: Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        padding: EdgeInsets.all(20),
+                        color: Color.fromARGB(255, 169, 160, 125),
+                        child: 
+                        ElevatedButton(onPressed: (){},
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(AppColors.blueShade_1)
+                        ),
+                          child: Text('Add to card')),
                       ),
 
 
