@@ -19,7 +19,9 @@ class _MyProductState extends State<MyProduct> {
         body: Column(
           children: [
             // Product images
-            SizedBox(
+            Stack(
+           children: [
+              SizedBox(
               height: MediaQuery.of(context).size.height * 0.25,
               child: Container(
                 padding: const EdgeInsets.only(top: 10),
@@ -31,6 +33,24 @@ class _MyProductState extends State<MyProduct> {
                 ),
               ),
             ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: AppColors.black_20,
+                  child: IconButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                   icon: const Icon(Icons.arrow_back_ios),
+                   alignment: Alignment.center,
+                   color: AppColors.black_100,
+                   ),
+                ),
+                title: const Text('Details',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500
+                ),),
+              )
+            ],
+         ),
 
             //lite text
             Container(
@@ -47,6 +67,7 @@ class _MyProductState extends State<MyProduct> {
              child: DraggableScrollableSheet(
               initialChildSize: 0.90,
               minChildSize: 0.90,
+              maxChildSize: 0.98,
               snap: true,
               builder:(BuildContext context, ScrollController scrollController) {
               return ClipRRect(
@@ -65,6 +86,7 @@ class _MyProductState extends State<MyProduct> {
                         ),),
                       ),
                       Container(
+                        padding: EdgeInsets.all(20),
                         color: Colors.amberAccent,
                         width: double.maxFinite,
                         child: const Text('Price 130 \$',
@@ -73,18 +95,18 @@ class _MyProductState extends State<MyProduct> {
                         ),),
                       ),
                       Container(
+                        padding: EdgeInsets.all(20),
                         color: const Color.fromARGB(255, 232, 220, 175),
                         height: 200,
                         child:  Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
                       Container(
+                        padding: EdgeInsets.all(20),
                         color: Color.fromARGB(255, 169, 160, 125),
                         child: Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
-                      Container(
-                        color: Color.fromARGB(255, 233, 217, 157),
-                        height: 200,
-                      ),
+
+
                     ],
                   ),
                 ),
