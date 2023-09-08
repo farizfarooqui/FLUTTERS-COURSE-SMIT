@@ -21,7 +21,6 @@ List SubTitleArr = ['Theres something for everyone to enjoy with Sweet Shop Favo
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
        backgroundColor: AppColors.blueShade_1,
        body: Column(
          children: [

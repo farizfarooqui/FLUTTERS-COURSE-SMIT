@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:figma_project/cart_view.dart';
 import 'package:figma_project/colors.dart';
+import 'package:figma_project/data.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'product.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
+import 'product.dart';
 
  List MyCardItems = [];
 
@@ -29,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
 
   List DealArr =['Azadi Deal' , 'Weekend Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
   List DealsURLArr = ['assets/images/deals/1.jpg','assets/images/deals/2.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
-
+  
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,13 @@ class _HomeViewState extends State<HomeView> {
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
                           child: ElevatedButton(style:ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
-                            onPressed: () {},
+                            onPressed: () {
+                              String RecommendedProductName=RecommendedItemsArr[index];
+                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => 
+                              MyProduct(ProductName: RecommendedProductName)
+                              ));
+
+                            },
                             child: Stack(
                               children: [
                                 Container(

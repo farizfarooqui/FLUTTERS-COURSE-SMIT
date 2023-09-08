@@ -1,16 +1,23 @@
 import 'package:figma_project/colors.dart';
+import 'package:figma_project/data.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'home_view.dart';
 
 class MyProduct extends StatefulWidget {
-  const MyProduct({super.key});
+  final String ProductName;
 
+const MyProduct({Key? key, required this.ProductName}) : super(key: key);
   @override
   State<MyProduct> createState() => _MyProductState();
 }
 
 class _MyProductState extends State<MyProduct> {
+  get ProductName => null;
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -71,7 +78,7 @@ class _MyProductState extends State<MyProduct> {
               snap: true,
               builder:(BuildContext context, ScrollController scrollController) {
               return ClipRRect(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                 child: SingleChildScrollView(
                   controller: scrollController,
                   child: Column(
@@ -79,19 +86,19 @@ class _MyProductState extends State<MyProduct> {
                       Stack(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.only(top: 30,bottom: 20,left: 20,right: 20),
                             color: Colors.amber,
                             width: double.maxFinite,
-                            child: const Text('Product Name',
-                            style: TextStyle(
+                            child: Text( widget.ProductName ,
+                            style: const TextStyle(
                               fontSize: 60
                             ),),
                           ),
                           Container(
                             height: 6,
                             width: 60,
-                            color: Colors.grey,
-                            margin: const EdgeInsets.only(top: 10,left: 170),
+                            color: AppColors.black_60,
+                            margin: const EdgeInsets.only(top: 12,left: 170),
                             alignment: Alignment.center,
                           )
                         ],
@@ -100,10 +107,27 @@ class _MyProductState extends State<MyProduct> {
                         padding: EdgeInsets.all(20),
                         color: Colors.amberAccent,
                         width: double.maxFinite,
-                        child: const Text('Price 130 \$',
+                        child: const Text('Price : 5.00 \$',
                         style: TextStyle(
                           fontSize: 30
                         ),),
+                      ),
+                      Container(
+                        width: double.maxFinite,
+                        color: const Color.fromARGB(255, 232, 220, 175),
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 20,top: 20 ),
+                        child: RatingBar(
+                          
+                          itemSize: 30,
+                          allowHalfRating: true,
+                          ratingWidget: RatingWidget(
+                            full: Icon(Icons.star,color: Colors.amber), 
+                            half: Icon(Icons.star,color: Colors.amber), 
+                            empty:Icon(Icons.star,color: Colors.amber)
+                            ), 
+                            onRatingUpdate: (rating) {},
+                            ),
                       ),
                       Container(
                         padding: EdgeInsets.all(20),
@@ -117,15 +141,24 @@ class _MyProductState extends State<MyProduct> {
                         child: Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
                       Container(
+                        height: 100,
                         width: double.maxFinite,
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.only(left: 50,right: 50,bottom: 30,),
                         color: Color.fromARGB(255, 169, 160, 125),
                         child: 
-                        ElevatedButton(onPressed: (){},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(AppColors.blueShade_1)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(18),
+                          child: ElevatedButton(
+                            onPressed: (){
+                            MyCardItems.add(widget.ProductName);
+                          },
+                          style: 
+                          ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(AppColors.blueShade_1)
+                          ),
+                            child: Container(
+                              child: const Text('Add to card'))),
                         ),
-                          child: Text('Add to card')),
                       ),
 
 
