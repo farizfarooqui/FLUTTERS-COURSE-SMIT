@@ -2,7 +2,6 @@ import 'package:figma_project/checkout.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'home_view.dart';
-import 'cart_view.dart';
 
 
 class ProceedBotton extends StatelessWidget {

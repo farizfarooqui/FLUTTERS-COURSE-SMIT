@@ -1,6 +1,4 @@
 import 'package:figma_project/colors.dart';
-import 'package:figma_project/data.dart';
-import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -135,6 +133,20 @@ class _MyProductState extends State<MyProduct> {
                         height: 200,
                         child:  Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
+                      ExpansionTile(
+                        collapsedTextColor: AppColors.black_100,
+                        textColor: AppColors.black_100,
+                        collapsedBackgroundColor: AppColors.black_45,
+                        backgroundColor: AppColors.black_45,
+                        iconColor: AppColors.blueShade_2,
+                        title: Text('A product '),
+                        onExpansionChanged: (value) => true,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(20),
+                            child: Text('A product description is a form of marketing copy used toA product description is a form of marketing copy used toA product description is a form of marketing copy used to'))
+                        ],
+                        ),
                       Container(
                         padding: EdgeInsets.all(20),
                         color: Color.fromARGB(255, 169, 160, 125),
