@@ -14,10 +14,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List<String> addressArr = ['Green Way 3000, Sylhet', 'Halt road 201, Europe', 'Halt road 201, Asia', 'Halt road 201, Africa'];
-  String addressDropDownValue = 'Green Way 3000, Sylhet';
+  String AddressDropDownValue = 'Green Way 3000, Sylhet';
 
   List<String> timeArr = ['1 Hour', '2 Hours', '3 Hours', '4 Hours'];
-  String timeDropDownValue = '1 Hour';
+  String TimeDropDownValue = '1 Hour';
+
+
 
   List <String> SliderImagesArr = ['assets/images/slider/slider1.jpg','assets/images/slider/slider2.png','assets/images/slider/slider3.png','assets/images/slider/slider5.png'];
 
@@ -40,6 +42,27 @@ class _HomeViewState extends State<HomeView> {
                   color: AppColors.blueShade_1,
                   child: SearchBarr("Search or Enter here...")//Function of Bar
                 ),
+
+                //dropdown button
+                // Container(
+                //   width: double.maxFinite,
+                //   color: AppColors.blueShade_2,
+                //   height: 80,
+                //   child: Row(
+                //     children: [
+                //       Container(
+                //         color: AppColors.orangeShade_1,
+                //         width: MediaQuery.of(context).size.width*0.5,
+                //         height: 40,
+                //       ),
+                //       Container(
+                //         color: AppColors.orangeShade_2,
+                //         width: MediaQuery.of(context).size.width*0.5,
+                //         height: 40,
+                //       )
+                //     ],
+                //   ),
+                // ),
                     
                 //Slider Banner
                 CarouselSlider.builder(
@@ -89,7 +112,6 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Container(
                                   color: AppColors.black_1,
-                                  // width: 130,
                                   child: Image.asset(RecommendedItemsURLArr[index],)
                                 ),
                                 Container(
@@ -104,10 +126,8 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                                 Container(
                                   margin: const EdgeInsets.only(left: 120,top: 150),
-                                  // alignment: Alignment.topRight,
                                   child: IconButton(onPressed: (){
                                     MyCardItems.add(RecommendedItemsArr[index]);
-                                    // MyCard.add(RecommendedItemsArr[index]);
                                   }, icon: const Icon(Icons.add_circle_sharp,color: Color.fromARGB(255, 21, 96, 161)),)
                                 )
                               ],
@@ -167,6 +187,10 @@ class _HomeViewState extends State<HomeView> {
                         );
                       }),
                     ),
+
+                    const SizedBox(
+                      height: 30,
+                    )
 
               ],
         ),

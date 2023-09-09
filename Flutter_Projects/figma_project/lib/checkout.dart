@@ -1,4 +1,4 @@
-import 'package:figma_project/widgets.dart';
+import 'package:figma_project/payment.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
@@ -180,18 +180,18 @@ class _CheckOutState extends State<CheckOut> {
             child: ElevatedButton(
               style: 
               ButtonStyle(
-                
                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
                 shadowColor: MaterialStatePropertyAll(AppColors.blueShade_1),
                 backgroundColor: MaterialStatePropertyAll(AppColors.blueShade_2)
               ),
-              onPressed: (){},
-              
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => MakePayment()));
+              },
               child: Container(
                 alignment: Alignment.bottomCenter,
                 height: 90,
                 width: 300,
-                child: Center(child: Text('Place Order',
+                child: Center(child: Text('Make Payment',
                 style: TextStyle(
                   color: AppColors.black_1,
                   fontSize: 18

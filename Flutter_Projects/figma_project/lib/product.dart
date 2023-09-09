@@ -85,7 +85,7 @@ class _MyProductState extends State<MyProduct> {
                         children: [
                           Container(
                             padding: const EdgeInsets.only(top: 30,bottom: 20,left: 20,right: 20),
-                            color: Colors.amber,
+                            color: Color.fromARGB(255, 228, 197, 103),
                             width: double.maxFinite,
                             child: Text( widget.ProductName ,
                             style: const TextStyle(
@@ -139,7 +139,7 @@ class _MyProductState extends State<MyProduct> {
                         collapsedBackgroundColor: AppColors.black_45,
                         backgroundColor: AppColors.black_45,
                         iconColor: AppColors.blueShade_2,
-                        title: Text('A product '),
+                        title: Text('Nutritional facts'),
                         onExpansionChanged: (value) => true,
                         children: [
                           Container(
