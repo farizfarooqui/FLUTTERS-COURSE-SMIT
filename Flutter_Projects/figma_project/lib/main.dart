@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LandingPageView(),
+      home: const OnBoard_screen(),
       theme: ThemeData( splashColor: AppColors.orangeShade_2),
     );
   }
