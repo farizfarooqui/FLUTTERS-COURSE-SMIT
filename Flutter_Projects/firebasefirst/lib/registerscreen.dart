@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/homescreem.dart';
 import 'package:firebasefirst/loginscreen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {
@@ -12,13 +13,16 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   register() async {
             try {
           final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: "hello@gmail.com",
-            password: '123',
-          );
-          Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
+            email: emailController.text,
+            password: passwordController.text,
+           );
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             print('The password provided is too weak.');
@@ -41,12 +45,16 @@ class _RegisterViewState extends State<RegisterView> {
             Container(
               margin: EdgeInsets.all(10),
               color: Colors.grey,
-              child: TextField()
+              child: TextField(
+                controller: emailController,
+              )
               ),
             Container(
               margin: EdgeInsets.all(10),
               color: Colors.grey,
-              child: TextField()
+              child: TextField(
+                controller: passwordController,
+              )
               ),
               Container(
               margin: EdgeInsets.all(10),

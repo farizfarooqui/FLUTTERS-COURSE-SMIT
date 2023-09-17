@@ -20,10 +20,11 @@ class _LoginViewState extends State<LoginView> {
               email: emailController.text,
               password: passwordController.text
             );
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
           } on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
               print('No user found for that email.');
+              ScaffoldMessenger(child: Text('j'));
             } else if (e.code == 'wrong-password') {
               print('Wrong password provided for that user.');
             }
