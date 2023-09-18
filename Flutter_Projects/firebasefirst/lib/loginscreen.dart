@@ -39,22 +39,35 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             children: [
               Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: Colors.grey,
               child: TextField(
                 controller: emailController,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 20),
+                hintText: 'Enter your email',
+              ),
               )
               ),
               Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: Colors.grey,
               child: TextField(
                 controller: passwordController,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 20),
+                  hintText: 'Enter your password'
+                ),
               )
               ),
               ElevatedButton(onPressed: () {
                 login();
-              }, child: Text('Login')),
+              }, child: Text('Login'),
+                 style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.amber),
+                  alignment: Alignment.bottomCenter,
+                 ),
+              ),
               InkWell(
                 onTap:() {
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> RegisterView())); 
