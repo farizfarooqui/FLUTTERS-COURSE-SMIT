@@ -44,31 +44,44 @@ class _RegisterViewState extends State<RegisterView> {
           children: [
             Container(
               margin: EdgeInsets.all(10),
-              color: Colors.grey,
+              color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 controller: emailController,
               )
               ),
             Container(
               margin: EdgeInsets.all(10),
-              color: Colors.grey,
+              color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 controller: passwordController,
               )
               ),
               Container(
               margin: EdgeInsets.all(10),
-              color: Colors.grey,
+              color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField()
               ),
+
+
             ElevatedButton(onPressed: () {
-              register();
-            }, 
-            child: Text('Register')),
+                register();
+              }, child: Container(
+                margin: EdgeInsets.only(left: 20,right: 20),
+                width: 320,
+                height: 50,
+                child: Center(child: Text('Register'))),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.amber)
+                ),
+              ),
+
+
             InkWell(
-              child: Text('Already have an account? Login!'),
+              child: Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Text('Already have an account? Login!')),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> LoginView()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> LoginView()));
               },
             )
           ],
