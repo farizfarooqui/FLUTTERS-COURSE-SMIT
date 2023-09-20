@@ -26,8 +26,8 @@ class _HomeViewState extends State<HomeView> {
   List RecommendedItemsArr = ['Biryani','Haleem','Karhai','Nihari','Burger'];
   List RecommendedItemsURLArr = ['assets/images/recommend/biryani.jpg','assets/images/recommend/haleem.jpg','assets/images/recommend/karhai.jpg','assets/images/recommend/nihari.jpg','assets/images/recommend/burger.jpg'];
 
-  List DealArr =['Azadi Deal' , 'Weekend Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
-  List DealsURLArr = ['assets/images/deals/1.jpg','assets/images/deals/2.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
+  List DealArr =['Asia-Cup Deal' , 'Cricket Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
+  List DealsURLArr = ['assets/images/deals/11.jpeg','assets/images/deals/1.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
   
 
   @override

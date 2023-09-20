@@ -7,7 +7,7 @@ class Restaurant extends StatelessWidget {
 
   Restaurant({Key? key, required this.restaurantName}) : super(key: key); // Constructor with restaurantName parameter
 
-List counter = ['Deal 1','Deal 2','Deal 3','Deal 4','Deal 5','Deal 6','Deal 7','Deal 8','Deal 9','Deal 10','Deal 11','Deal 12','Deal 13','Deal 14','Deal 15','Deal 16','Deal 17','Deal 18','Deal 19','Deal 20','counter',];
+List counter = ['Deal 1','Deal 2','Deal 3','Deal 4','Deal 5','Deal 6','Deal 7','Deal 8','Deal 9','Deal 10','Deal 11','Deal 12','Deal 13','Deal 14','Deal 15','Deal 16','Deal 17','Deal 18','Deal 19','Deal 20',];
 
   @override
   Widget build(BuildContext context) {

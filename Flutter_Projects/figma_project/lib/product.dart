@@ -85,7 +85,7 @@ class _MyProductState extends State<MyProduct> {
                         children: [
                           Container(
                             padding: const EdgeInsets.only(top: 30,bottom: 20,left: 20,right: 20),
-                            color: Color.fromARGB(255, 228, 197, 103),
+                            color: AppColors.black_20,
                             width: double.maxFinite,
                             child: Text( widget.ProductName ,
                             style: const TextStyle(
@@ -103,7 +103,7 @@ class _MyProductState extends State<MyProduct> {
                       ),
                       Container(
                         padding: EdgeInsets.all(20),
-                        color: Colors.amberAccent,
+                        color: AppColors.black_20,
                         width: double.maxFinite,
                         child: const Text('Price : 5.00 \$',
                         style: TextStyle(
@@ -112,7 +112,7 @@ class _MyProductState extends State<MyProduct> {
                       ),
                       Container(
                         width: double.maxFinite,
-                        color: const Color.fromARGB(255, 232, 220, 175),
+                        color: AppColors.black_20,
                         alignment: Alignment.topLeft,
                         padding: const EdgeInsets.only(left: 20,top: 20 ),
                         child: RatingBar(
@@ -129,7 +129,7 @@ class _MyProductState extends State<MyProduct> {
                       ),
                       Container(
                         padding: EdgeInsets.all(20),
-                        color: const Color.fromARGB(255, 232, 220, 175),
+                        color: AppColors.black_20,
                         height: 200,
                         child:  Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
@@ -149,14 +149,14 @@ class _MyProductState extends State<MyProduct> {
                         ),
                       Container(
                         padding: EdgeInsets.all(20),
-                        color: Color.fromARGB(255, 169, 160, 125),
+                        color: AppColors.black_20,
                         child: Text('A product description is a form of marketing copy used to describe and explain the benefits of your product. In other words, it provides all the information and details of your product on your ecommerce site. These product details can be one sentence, a short paragraph or bulleted. They can be serious, funny or quirky.'),
                       ),
                       Container(
                         height: 100,
                         width: double.maxFinite,
                         padding: EdgeInsets.only(left: 50,right: 50,bottom: 30,),
-                        color: Color.fromARGB(255, 169, 160, 125),
+                        color: AppColors.black_20,
                         child: 
                         ClipRRect(
                           borderRadius: BorderRadius.circular(18),
