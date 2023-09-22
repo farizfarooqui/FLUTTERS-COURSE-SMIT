@@ -123,7 +123,7 @@ class _LoginViewState extends State<LoginView> {
                   margin: const EdgeInsets.only(top: 20),
                   child: const Text('Dont have a account? Create account!'))),
 
-              if (Loader) const LoaderWidget()
+              if (Loader) const LoaderWidget(),
       
             ],
           ),
