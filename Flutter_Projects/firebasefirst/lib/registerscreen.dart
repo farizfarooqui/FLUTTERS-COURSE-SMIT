@@ -22,7 +22,7 @@ class _RegisterViewState extends State<RegisterView> {
             email: emailController.text,
             password: passwordController.text,
            );
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (Context)=> HomeView()));
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             print('The password provided is too weak.');
@@ -38,10 +38,20 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: SafeArea(
-        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 30),
+                child: Center(
+                  child: Text('REGISTER HERE!',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500
+                  ),
+                  ),
+                ),
+              ),
             Container(
               margin: EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),

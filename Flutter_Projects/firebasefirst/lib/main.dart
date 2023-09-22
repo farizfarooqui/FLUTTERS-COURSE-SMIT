@@ -3,6 +3,7 @@ import 'package:firebasefirst/firebase_options.dart';
 import 'package:firebasefirst/loginscreen.dart';
 import 'package:firebasefirst/registerscreen.dart';
 import 'package:flutter/material.dart';
+import 'future_stream_.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

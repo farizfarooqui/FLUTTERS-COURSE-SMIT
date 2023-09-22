@@ -8,9 +8,11 @@ class FutureAndStream extends StatefulWidget {
 }
 
 class _FutureAndStreamState extends State<FutureAndStream> {
-
-  Future <int> increment(){
-    return Future(() => 6);
+   
+  int value=50;
+  Future <int> increment()async{
+    await Future.delayed(Duration(seconds: 3));
+       return value+10;
   }
 
   @override
@@ -18,9 +20,19 @@ class _FutureAndStreamState extends State<FutureAndStream> {
     return  Scaffold(
       appBar: AppBar(),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-
+          Center(
+            child: Container(
+              child: FutureBuilder(
+                future: increment(),
+                builder: (context , Snapshot){
+                  return Text('Future : $value ',style: TextStyle(fontSize: 30),);
+                }
+              )
+              
+              // Text('Future : '),
+            ),
           )
         ],
       ),
