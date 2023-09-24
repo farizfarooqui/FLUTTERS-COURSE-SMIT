@@ -8,6 +8,7 @@ class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
 
   @override
+  
   State<RegisterView> createState() => _RegisterViewState();
 }
 
@@ -15,19 +16,53 @@ class _RegisterViewState extends State<RegisterView> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  bool Loader = false;
 
   register() async {
+    if (confirmPasswordController.text!=passwordController.text) {
+                showDialog(context: context, builder: (BuildContext) {
+                  return const AlertDialog(
+                    title: Text('Passwoed Does not match'),
+                  );
+                });
+                return;
+              }
             try {
-          final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              setState(() {
+             Loader = true;
+           });
+            final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text,
             password: passwordController.text,
-           );
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (Context)=> HomeView()));
-        } on FirebaseAuthException catch (e) {
+            );
+            
+           setState(() {
+             Loader = false;
+           });
+          Navigator.push(context, MaterialPageRoute(builder: (Context)=> const HomeView()));
+          
+        } 
+        on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
-            print('The password provided is too weak.');
-          } else if (e.code == 'email-already-in-use') {
-            print('The account already exists for that email.');
+            showDialog(context: context, builder: (BuildContext) {
+              return const AlertDialog(
+                title: Text("Make Stronger Password !"),
+              );
+            });
+            setState(() {
+              Loader = false;
+            });
+          }
+           else if (e.code == 'email-already-in-use') {
+            showDialog(context: context, builder: (BuildContext) {
+              return const AlertDialog(
+                title: Text("Email already in use !"),
+              );
+            });
+            setState(() {
+              Loader = false;
+            });
           }
         } catch (e) {
           print(e);
@@ -57,25 +92,42 @@ class _RegisterViewState extends State<RegisterView> {
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 controller: emailController,
+                decoration: InputDecoration(
+                  hintText: 'Enter Email',
+                  contentPadding: EdgeInsets.only(left: 10)
+                ),
               )
               ),
             Container(
               margin: EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Create Password',
+                  contentPadding: EdgeInsets.only(left: 10)
+                ),
                 controller: passwordController,
+                obscureText: true,
               )
               ),
               Container(
               margin: EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
-              child: TextField()
+              child: TextField(
+                obscureText: true,
+                decoration: const InputDecoration(
+                  hintText: 'ComFirm Password',
+                  contentPadding: EdgeInsets.only(left: 10)
+                ),
+                controller: confirmPasswordController,
+              )
               ),
 
 
             ElevatedButton(onPressed: () {
                 register();
-              }, child: Container(
+              }, 
+              child: Container(
                 margin: EdgeInsets.only(left: 20,right: 20),
                 width: 320,
                 height: 50,
@@ -93,9 +145,28 @@ class _RegisterViewState extends State<RegisterView> {
               onTap: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> LoginView()));
               },
-            )
+            ),
+
+            if (Loader) LoaderWidget(),
+
+            
           ],
         )),
     );
   }
 }
+
+class LoaderWidget extends StatelessWidget {
+  const LoaderWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      margin: EdgeInsets.only(top: 20),
+      child: CircularProgressIndicator(
+        color: Colors.amber,
+      ),
+    );
+  }
+}
+

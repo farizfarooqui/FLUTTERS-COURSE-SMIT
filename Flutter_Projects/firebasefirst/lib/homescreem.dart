@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasefirst/loginscreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -93,7 +95,16 @@ class HomeView extends StatelessWidget {
               );
             }),
           ),
-          
+
+
+          FloatingActionButton(
+                  onPressed: () async {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.logout),
+                )
+
         ],
       )
     );

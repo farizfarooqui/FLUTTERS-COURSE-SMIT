@@ -14,6 +14,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
   bool Loader = false;
 
   login() async {
@@ -28,7 +29,7 @@ class _LoginViewState extends State<LoginView> {
             setState(() {
                   Loader = false;
                 });
-            Navigator.push (context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
             
           } on FirebaseAuthException catch (e)
            {
@@ -92,6 +93,7 @@ class _LoginViewState extends State<LoginView> {
               margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
+                obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.only(left: 20),
