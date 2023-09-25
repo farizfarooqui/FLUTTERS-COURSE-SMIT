@@ -11,7 +11,7 @@ class _FutureAndStreamState extends State<FutureAndStream> {
    
   int value=50;
   Future <int> increment()async{
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 5));
        return value+10;
   }
 
