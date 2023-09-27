@@ -73,7 +73,7 @@ class _MyCardState extends State<MyCard> {
               child: ListTile(
                 leading: SvgPicture.asset('assets/images/card/listimage.svg'),
                 title: Text(MyCardItems[index]),
-                subtitle: Text(MyCardItemsPrice[index]),
+                subtitle: MyCardItemsPrice[index]? MyCardItemsPrice[index] : '34',
                 trailing: 
                 IconButton(onPressed: () {
                   setState(() {

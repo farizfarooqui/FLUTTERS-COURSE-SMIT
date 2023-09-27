@@ -29,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
   List RecommendedItemsURLArr = ['assets/images/recommend/biryani.jpg','assets/images/recommend/haleem.jpg','assets/images/recommend/karhai.jpg','assets/images/recommend/nihari.jpg','assets/images/recommend/burger.jpg'];
 
   List DealArr =['Asia-Cup Deal' , 'Cricket Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
+  List DealPriceArr =['\$3.5','\$2.75','\$3.0','\$3.50','\$4.0'];
   List DealsURLArr = ['assets/images/deals/11.jpeg','assets/images/deals/1.jpg','assets/images/deals/3.jpg','assets/images/deals/4.png','assets/images/deals/5.png'];
   
 
@@ -111,7 +112,7 @@ class _HomeViewState extends State<HomeView> {
                               ));
                             },
                             child: Container(
-                              width: 190,
+                              width: 150,
                               child: Column(
                                 children: [
                                   Container(
@@ -147,43 +148,48 @@ class _HomeViewState extends State<HomeView> {
                     
                     
                   //Deals list
-                    SizedBox(
-                      height: 200,
+                  SizedBox(
+                      height: 200 ,
                       child: ListView.builder(
-                        itemCount: DealArr.length,
+                        itemCount: RecommendedItemsURLArr.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
                         return Container(
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
-                          child: ElevatedButton(style:ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
+                          child: ElevatedButton (style:
+                          ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(AppColors.black_10),),
                             onPressed: () {},
-                            child: Stack(
-                              children: [
-                                Container(
-                                  color: AppColors.black_1,
-                                  // width: 130,
-                                  child: Image.asset(DealsURLArr[index],)
-                                ),
-                                Container(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Text(DealArr[index],
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: AppColors.blueShade_2,
-                                    fontWeight: FontWeight.w700,
-                                    backgroundColor:AppColors.black_20
-                                  ),),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(left: 160,top: 150),
-                                  // alignment: Alignment.bottomRight,
-                                  child: IconButton(onPressed: (){
-                                    MyCardItems.add(DealArr[index]);
-                                  }, icon: const Icon(Icons.add_circle_sharp,color: Color.fromARGB(255, 21, 96, 161),),)
-                                )
-                              ],
-                            ),
+                            child: Container(
+                              width: 170,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topCenter,
+                                    color: AppColors.black_10,
+                                    width: 150,
+                                    height: 110,
+                                    child: Image.asset(DealsURLArr[index]),
+                                  ),
+                                  Stack(
+                                    children: [
+                                      ListTile(
+                                        title: Text(DealArr[index]),
+                                        subtitle: Text(DealPriceArr[index]),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.bottomRight,
+                                        child: IconButton(onPressed: (){ 
+                                          MyCardItems.add(DealArr[index]);
+                                          MyCardItemsPrice.add(DealPriceArr[index]);
+                                           },
+                                        icon: const Icon(Icons.add_circle), color: AppColors.blueShade_1,),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
                           ),
                         );
                       }),
@@ -197,47 +203,6 @@ class _HomeViewState extends State<HomeView> {
         ),
       )
 
-      // bottomNavigationBar:BottomNavigationBar(items: const [
-      //   BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-      //   BottomNavigationBarItem(icon: Icon(Icons.category_sharp),label: "Categories"),
-      //   BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: 'Favorites'),
-      //   BottomNavigationBarItem(icon: Icon(Icons.more_vert),label: 'More'),
-      // ],
-      // currentIndex: _currentIndex,
-      // backgroundColor: AppColors.blueShade_1 ,
-      // selectedItemColor: AppColors.orangeShade_2,
-      // type: BottomNavigationBarType.fixed,
-      // selectedFontSize: 12 ,
-      // selectedIconTheme: const IconThemeData(size: 35 ),
-      
-      // onTap: (index) {
-      //   setState(() {
-      //     _currentIndex=index;
-      //   });
-      // },
-      // ),
-
-
-      // CurvedNavigationBar(
-      //   items: [
-      //     Icon(Icons.home, color: AppColors.black_100,),
-      //     Icon(Icons.category_sharp, color: AppColors.black_100),
-      //     Icon(Icons.favorite_border, color: AppColors.black_100),
-      //     Icon(Icons.more_vert, color: AppColors.black_100),
-      //   ],
-      //   backgroundColor: Colors.transparent,
-      //   color: AppColors.black_1,
-      //   buttonBackgroundColor: AppColors.black_1,
-      //   animationDuration: const Duration(milliseconds: 400 ),
-      //   onTap: (index) {
-      //     setState(() {
-      //       // Update the color of the tapped icon and reset the color of others
-      //       _currentIndex = index;
-      //     });
-      //   },
-      //   index: _currentIndex,
-        
-      // ),
     );
   }
 }
