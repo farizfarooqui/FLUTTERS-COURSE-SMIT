@@ -1,4 +1,5 @@
 import 'package:figma_project/colors.dart';
+import 'package:figma_project/data.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +22,6 @@ class _MyCardState extends State<MyCard> {
       body: SafeArea(child: 
       Column( 
         children: [
-
         //list tile and banner
          Stack(
            children: [
@@ -73,7 +73,7 @@ class _MyCardState extends State<MyCard> {
               child: ListTile(
                 leading: SvgPicture.asset('assets/images/card/listimage.svg'),
                 title: Text(MyCardItems[index]),
-                subtitle: const Text(' \$5'),
+                subtitle: Text(MyCardItemsPrice[index]),
                 trailing: 
                 IconButton(onPressed: () {
                   setState(() {

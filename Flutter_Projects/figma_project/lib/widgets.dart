@@ -16,7 +16,7 @@ class ProceedBotton extends StatelessWidget {
             Container(
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.only(left: 50,top: 15),
-              child: Text('Subtotal                                                   ${MyCardItems.length*5} \$',
+              child: Text('Subtotal                                                   ${MyCardItemsPrice.length*5} \$',
               style: TextStyle(
                 fontSize: 15,
                 color: AppColors.black_90,
@@ -97,7 +97,7 @@ class ProceedBotton extends StatelessWidget {
     );
   }
 
-SearchBarr ( HintText ) {
+SearchBarr(HintText) {
   return 
   TextField(cursorColor: AppColors.black_1,
               decoration: InputDecoration(

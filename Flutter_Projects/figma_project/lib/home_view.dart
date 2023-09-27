@@ -4,6 +4,7 @@ import 'product.dart';
 import 'package:figma_project/widgets.dart';
 import 'package:flutter/material.dart';
  List MyCardItems = [];
+ List MyCardItemsPrice= [];
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -24,6 +25,7 @@ class _HomeViewState extends State<HomeView> {
   List <String> SliderImagesArr = ['assets/images/slider/slider1.jpg','assets/images/slider/slider2.png','assets/images/slider/slider3.png','assets/images/slider/slider5.png'];
 
   List RecommendedItemsArr = ['Biryani','Haleem','Karhai','Nihari','Burger'];
+  List RecommendedItemsPriceArr = ['\$2.5','\$1.75','\$2.0','\$3.0','\$2.0'];
   List RecommendedItemsURLArr = ['assets/images/recommend/biryani.jpg','assets/images/recommend/haleem.jpg','assets/images/recommend/karhai.jpg','assets/images/recommend/nihari.jpg','assets/images/recommend/burger.jpg'];
 
   List DealArr =['Asia-Cup Deal' , 'Cricket Deal' , 'Mid Night Deal' ,'Gol-Gappay Combo' , 'Weekend Deal'];
@@ -99,39 +101,38 @@ class _HomeViewState extends State<HomeView> {
                         itemBuilder: (BuildContext context, int index) {
                         return Container(
                           margin:const EdgeInsets.only(left: 10,bottom: 10),
-                          child: ElevatedButton(style:ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(AppColors.black_1),),
+                          child: ElevatedButton (style:
+                          ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(AppColors.black_10),),
                             onPressed: () {
                               String RecommendedProductName=RecommendedItemsArr[index];
                               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => 
                               MyProduct(ProductName: RecommendedProductName)
                               ));
-
                             },
-                            child: Stack(
-                              children: [
-                                Container(
-                                  color: AppColors.black_1,
-                                  child: Image.asset(RecommendedItemsURLArr[index],)
-                                ),
-                                Container(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Text(RecommendedItemsArr[index],
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: AppColors.blueShade_2,
-                                    fontWeight: FontWeight.w700,
-                                    backgroundColor:AppColors.black_20
-                                  ),),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(left: 120,top: 150),
-                                  child: IconButton(onPressed: (){
-                                    MyCardItems.add(RecommendedItemsArr[index]);
-                                  }, icon: const Icon(Icons.add_circle_sharp,color: Color.fromARGB(255, 21, 96, 161)),)
-                                )
-                              ],
-                            ),
+                            child: Container(
+                              width: 190,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.topCenter,
+                                    color: AppColors.black_10,
+                                    width: 140,
+                                    height: 115,
+                                    child: Image.asset(RecommendedItemsURLArr[index]),
+                                  ),
+                                  ListTile(
+                                    title: Text(RecommendedItemsPriceArr[index]),
+                                    subtitle: Text(RecommendedItemsArr[index]),
+                                    trailing: IconButton.filled(onPressed: (){
+                                      MyCardItems.add(RecommendedItemsArr[index]);
+                                      MyCardItemsPrice.add(RecommendedItemsPriceArr[index]);
+                                    },
+                                     icon: const Icon(Icons.add_circle), color: AppColors.blueShade_1,),
+                                  )
+                                ],
+                              ),
+                            )
                           ),
                         );
                       }),
