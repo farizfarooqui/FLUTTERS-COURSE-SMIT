@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebasefirst/firebase_options.dart';
+import 'package:firebasefirst/form.dart';
 import 'package:firebasefirst/loginscreen.dart';
 import 'package:firebasefirst/registerscreen.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginView(),
+      home: FormsView(),
     );
   }
 }

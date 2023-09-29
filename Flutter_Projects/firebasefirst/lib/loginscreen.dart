@@ -82,6 +82,7 @@ class _LoginViewState extends State<LoginView> {
               margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
+                cursorColor: Colors.amber,
                 controller: emailController,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.only(left: 20),
@@ -93,6 +94,7 @@ class _LoginViewState extends State<LoginView> {
               margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
+                cursorColor: Colors.amber,
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/homescreem.dart';
 import 'package:firebasefirst/loginscreen.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {
@@ -17,6 +16,7 @@ class _RegisterViewState extends State<RegisterView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   bool Loader = false;
 
   register() async {
@@ -77,8 +77,8 @@ class _RegisterViewState extends State<RegisterView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 30),
-                child: Center(
+              margin: const EdgeInsets.only(bottom: 30),
+                child: const Center(
                   child: Text('REGISTER HERE!',
                   style: TextStyle(
                     fontSize: 30,
@@ -87,19 +87,30 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                 ),
               ),
+              Container(
+              margin: const EdgeInsets.all(10),
+              color: const Color.fromARGB(255, 205, 204, 204),
+              child: TextField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Name',
+                  contentPadding: EdgeInsets.only(left: 10)
+                ),
+              )
+              ),
             Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Enter Email',
                   contentPadding: EdgeInsets.only(left: 10)
                 ),
               )
               ),
             Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 decoration: const InputDecoration(
@@ -111,7 +122,7 @@ class _RegisterViewState extends State<RegisterView> {
               )
               ),
               Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               color: const Color.fromARGB(255, 205, 204, 204),
               child: TextField(
                 obscureText: true,
@@ -132,7 +143,7 @@ class _RegisterViewState extends State<RegisterView> {
                 width: 320,
                 height: 50,
                 child: Center(child: Text('Register'))),
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.amber)
                 ),
               ),
@@ -140,16 +151,15 @@ class _RegisterViewState extends State<RegisterView> {
 
             InkWell(
               child: Container(
-                margin: EdgeInsets.only(top: 20),
-                child: Text('Already have an account? Login!')),
+                margin: const EdgeInsets.only(top: 20),
+                child: const Text('Already have an account? Login!')),
               onTap: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> LoginView()));
               },
             ),
 
-            if (Loader) LoaderWidget(),
+            if (Loader) const LoaderWidget(),
 
-            
           ],
         )),
     );
@@ -162,8 +172,8 @@ class LoaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      margin: EdgeInsets.only(top: 20),
-      child: CircularProgressIndicator(
+      margin: const EdgeInsets.only(top: 20),
+      child: const CircularProgressIndicator(
         color: Colors.amber,
       ),
     );
