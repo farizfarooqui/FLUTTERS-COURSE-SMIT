@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/loginscreen.dart';
 import 'package:flutter/material.dart';
-import 'form.dart';
+import 'formSignup.dart';
 
 class HomeView extends StatelessWidget {
   

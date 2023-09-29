@@ -12,7 +12,7 @@ class FormsView extends StatefulWidget {
   State<FormsView> createState() => _FormsViewState();
 }
 
-class _FormsViewState extends State<FormsView> {
+class _FormsViewState extends State<FormsView> { 
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -139,7 +139,7 @@ class _FormsViewState extends State<FormsView> {
                    child: const SizedBox(
                     height: 60,
                     width: double.maxFinite,
-                    child: Center(child: Text('Lock kro !!',
+                    child: Center(child: Text('SUBMIT !!',
                     style: TextStyle(
                       fontSize:16
                     ),
