@@ -29,7 +29,7 @@ class _LoginViewState extends State<LoginView> {
             setState(() {
                   Loader = false;
                 });
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView()));
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView(UserName: 'F',)));
             
           } on FirebaseAuthException catch (e)
            {

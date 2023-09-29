@@ -1,14 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/loginscreen.dart';
 import 'package:flutter/material.dart';
+import 'form.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  
+  final String UserName;
+  const HomeView({super.key, required this.UserName});
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        title: Text('Hey $UserName'),
         backgroundColor: Colors.amber,
       ),
       backgroundColor: const Color.fromARGB(255, 240, 215, 190),

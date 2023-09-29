@@ -40,7 +40,7 @@ class _RegisterViewState extends State<RegisterView> {
            setState(() {
              Loader = false;
            });
-          Navigator.push(context, MaterialPageRoute(builder: (Context)=> const HomeView()));
+          Navigator.push(context, MaterialPageRoute(builder: (Context)=>  HomeView(UserName: 'H',)));
           
         } 
         on FirebaseAuthException catch (e) {

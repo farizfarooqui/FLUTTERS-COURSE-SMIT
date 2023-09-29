@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebasefirst/homescreem.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,10 +19,13 @@ class _FormsViewState extends State<FormsView> {
   TextEditingController createPasswordController = TextEditingController();
   TextEditingController comfirmPasswordController = TextEditingController();
 
+  List usersNames = [];
+  
+
   signup()async{
 
             if (createPasswordController.text!=comfirmPasswordController.text) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Password does not match')));
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password does not match')));
               return exitCode;
             }
 
@@ -32,7 +34,9 @@ class _FormsViewState extends State<FormsView> {
             email: emailController.text,
             password: comfirmPasswordController.text,
             );
-          Navigator.push(context, MaterialPageRoute(builder: (Context)=> const HomeView()));
+            usersNames.add(nameController.text);
+          // ignore: use_build_context_synchronously, non_constant_identifier_names
+          Navigator.push(context, MaterialPageRoute(builder: (Context)=>  HomeView(UserName: nameController.text)));
           
         } 
         on FirebaseAuthException catch (e) {
@@ -56,10 +60,10 @@ class _FormsViewState extends State<FormsView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-          const Text('Fill up the form to get register',
+          const Text('SIGN UP !!',
           style: TextStyle(
             fontSize: 25,
-            color: Color.fromARGB(255, 249, 179, 1)
+            color: Colors.black
           ),
           ),
           Container(
@@ -69,49 +73,79 @@ class _FormsViewState extends State<FormsView> {
               child: Column(
                 children: [
                   TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Enter Full Name'
+                    ),
                     validator: (value) {
                       if (value==null || value.isEmpty) {
-                        return 'Enter the field';
+                        return 'Enter this field';
                       }
                       return null;
                     },
                     textCapitalization: TextCapitalization.characters,
                     controller: nameController,
+                    
                   ),
                   TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Enter Email'
+                    ),
                     validator: (value) {
                       if (value==null || value.isEmpty) {
-                        return 'Enter the field';
+                        return 'Enter this field';
                       }
                       return null;
                     },
                     controller: emailController,
                   ),
                   TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Create Password'
+                    ),
                     validator: (value) {
                       if (value==null || value.isEmpty) {
-                        return 'Enter the field';
+                        return 'Enter this field';
                       }
                       return null;
                     },
                     controller: createPasswordController,
                   ),
                   TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Comfirm Password'
+                    ),
                     validator: (value) {
                       if (value==null || value.isEmpty) {
-                        return 'Enter the field';
+                        return 'Enter this field';
                       }
                       return null;
                     },
                     controller: comfirmPasswordController,
                   ),
+
+                  const SizedBox(
+                    height: 30,
+                  ),
+
+                  //submit Buttom
                   ElevatedButton(onPressed: () {
                     if (_formkey.currentState!.validate()) {
                       signup();
                     }
                   },
-                   child: const Text('Lock kro !!'))
-                ],
+                    style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.amber)
+                   ),
+                   child: const SizedBox(
+                    height: 60,
+                    width: double.maxFinite,
+                    child: Center(child: Text('Lock kro !!',
+                    style: TextStyle(
+                      fontSize:16
+                    ),
+                    ))),
+                   )
+                ], 
               )
               ),
           ),
