@@ -121,7 +121,7 @@
 
 //               InkWell(
 //                 onTap:() {
-//                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> RegisterView())); 
+//                   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> RegisterView())); 
 //                 },
 //                 child: Container(
 //                   margin: const EdgeInsets.only(top: 20),

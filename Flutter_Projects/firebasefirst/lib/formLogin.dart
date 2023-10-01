@@ -5,31 +5,50 @@ import 'package:flutter/material.dart';
 final _loginFormKey = GlobalKey<FormState>();
 
 class FormLogin extends StatefulWidget {
-  const FormLogin({Key? key});
+   FormLogin({Key? key});
 
   @override
   State<FormLogin> createState() => _FormLoginState();
 }
 
+class _FormLoginState extends State<FormLogin> {
+
 TextEditingController emailController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 
-
-
-
-class _FormLoginState extends State<FormLogin> {
-
-login()async {
-  try {
-    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text
-      );
-      Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=>HomeView(UserName: emailController.text)));
-  } catch (e) {
-    
+  login() async {
+              try {
+            final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text
+            );
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView(UserName: 'F',)));
+            
+          } on FirebaseAuthException catch (e)
+           {
+            if (e.code == 'user-not-found') {
+              showDialog(context: context, builder: (BuildContext) {
+                Future.delayed(const Duration(seconds: 3)
+                );
+                return const AlertDialog(
+                  title: Text('No user found for that email.'),
+                );
+              });
+            } else if (e.code == 'wrong-password') {
+              showDialog(context: context, builder: (BuildContext) {
+                Future.delayed(const Duration(seconds: 3)
+                );
+                return const AlertDialog(
+                  title: Text('Wrong password provided for that user.'),
+                );
+                
+              });
+            }
+            else {
+              print('Unexpecteds error: $e');
+            }
+          }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +92,7 @@ login()async {
                   ),
                   onPressed: (){
                     if (_loginFormKey.currentState!.validate()) {
-                      //login
+                      login();
                     }
                   }, 
                   child: const SizedBox(
