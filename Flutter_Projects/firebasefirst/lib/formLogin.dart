@@ -45,7 +45,7 @@ TextEditingController passwordController = TextEditingController();
               });
             }
             else {
-              print('Unexpecteds error: $e');
+              print('Unexpected error: $e');
             }
           }
   }

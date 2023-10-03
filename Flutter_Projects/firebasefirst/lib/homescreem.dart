@@ -1,12 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasefirst/loginscreen.dart';
 import 'package:flutter/material.dart';
-import 'formSignup.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeView extends StatelessWidget {
   
   final String UserName;
   const HomeView({super.key, required this.UserName});
+
+  adduser(){
+    FirebaseFirestore.instance.collection('user').add({
+      "name" : 'Fariz',
+      "age" : 'hello'
+      }).then((value) => print('sucessfull')).
+      onError((error, stackTrace) => print('Unsucessfull'));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,13 +108,25 @@ class HomeView extends StatelessWidget {
           ),
 
 
-          FloatingActionButton(
-                  onPressed: () async {
-                    FirebaseAuth.instance.signOut();
-                    Navigator.pop(context);
-                  },
-                  child: Icon(Icons.logout),
-                )
+          // FloatingActionButton(
+          //         onPressed: () async {
+          //           FirebaseAuth.instance.signOut();
+          //           Navigator.pop(context);
+          //         },
+          //         child: Icon(Icons.logout),
+          //       )
+
+
+          ElevatedButton(onPressed: (){
+            adduser();
+          },
+                         child: const Text("Add user details")),
+
+          Drawer(
+            child: Container(
+              child: Text('hey'),
+            ),
+          )
 
         ],
       )

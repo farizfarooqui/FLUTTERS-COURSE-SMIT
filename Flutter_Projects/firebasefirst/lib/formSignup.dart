@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasefirst/homescreem.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +16,8 @@ class FormsView extends StatefulWidget {
 class _FormsViewState extends State<FormsView> { 
 
   TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController contactController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController createPasswordController = TextEditingController();
   TextEditingController comfirmPasswordController = TextEditingController();
@@ -34,7 +37,9 @@ class _FormsViewState extends State<FormsView> {
             email: emailController.text,
             password: comfirmPasswordController.text,
             );
-            usersNames.add(nameController.text);
+            FirebaseFirestore.instance.collection('user').add( 
+              {"Name" : nameController.text},
+            );
           // ignore: use_build_context_synchronously, non_constant_identifier_names
           Navigator.push(context, MaterialPageRoute(builder: (Context)=>  HomeView(UserName: nameController.text)));
           
@@ -84,7 +89,18 @@ class _FormsViewState extends State<FormsView> {
                     },
                     textCapitalization: TextCapitalization.characters,
                     controller: nameController,
-                    
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Enter contact'
+                    ),
+                    validator: (value) {
+                      if (value==null || value.isEmpty) {
+                        return 'Enter this field';
+                      }
+                      return null;
+                    },
+                    controller: contactController,
                   ),
                   TextFormField(
                     decoration: const InputDecoration(
