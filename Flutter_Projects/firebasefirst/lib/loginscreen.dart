@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/formSignup.dart';
 import 'package:firebasefirst/homescreem.dart';
@@ -100,7 +101,7 @@ class _LoginViewState extends State<LoginView> {
                           obscureText: true,
                           cursorColor: Colors.amber,
                           decoration: const InputDecoration(
-                            contentPadding: const EdgeInsets.only(left: 5),
+                            contentPadding: EdgeInsets.only(left: 5),
                             hintText: 'Enter Password'
                           ),
                           validator: (value) {
@@ -109,8 +110,6 @@ class _LoginViewState extends State<LoginView> {
                             }
                           },
                         ),
-                        
-                        
                       ],
                     ),
                   ),

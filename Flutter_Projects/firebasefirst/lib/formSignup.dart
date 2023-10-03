@@ -25,14 +25,26 @@ class _FormsViewState extends State<FormsView> {
 
   List usersNames = [];
   
-    storeUserData(){
-    FirebaseFirestore.instance.collection('user').add({
-      "Name" : nameController.text,
-      "Contact" : contactController.text,
-      "Email" : emailController.text,
-      "ComfirmPassword" : comfirmPasswordController.text,
-      }).then((value) => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:  Text('Successfully Sign Inn'))));
-  }
+storeUserData() async {
+  CollectionReference userCollection = FirebaseFirestore.instance.collection('user');
+
+  DocumentReference documentReference = await userCollection.add({
+    "Name": nameController.text,
+    "Contact": contactController.text,
+    "Email": emailController.text,
+    "ConfirmPassword": comfirmPasswordController.text,
+  });
+
+  String documentId = documentReference.id; // Get the auto-generated document ID
+
+  // Update the document with the generated ID
+  await documentReference.update({"userId": documentId});
+
+  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    content: Text('Successfully Signed In'),
+  ));
+}
+
 
   bool Circular_Loader = false;
 
@@ -93,12 +105,17 @@ class _FormsViewState extends State<FormsView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-          const Text('SIGN UP !!',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.black
-          ),
-          ),
+           Container(
+                margin: const EdgeInsets.only(bottom: 20),
+                child: const Center(
+                  child: Text('SIGN UP !',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500
+                  ),
+                  ),
+                ),
+              ),
           Container(
             margin: const EdgeInsets.only(left: 10,right: 10,top: 20),
             child: Form(

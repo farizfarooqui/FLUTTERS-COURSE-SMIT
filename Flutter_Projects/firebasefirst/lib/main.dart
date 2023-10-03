@@ -1,11 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebasefirst/firebase_options.dart';
-import 'package:firebasefirst/formLogin.dart';
-import 'package:firebasefirst/formSignup.dart';
 import 'package:firebasefirst/loginscreen.dart';
-import 'package:firebasefirst/registerscreen.dart';
 import 'package:flutter/material.dart';
-import 'future_stream_.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,9 +15,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FormsView(),
+      home: LoginView(),
     );
   }
 }
