@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasefirst/formSignup.dart';
 import 'package:firebasefirst/homescreem.dart';
 import 'package:firebasefirst/registerscreen.dart';
 import 'package:flutter/material.dart';
+
+
+final _loginKey = GlobalKey<FormState>();
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -32,32 +36,21 @@ class _LoginViewState extends State<LoginView> {
                   Loader = false;
                 });
             Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView(UserName: emailController.text,)));
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Welcome Back!')));
             
           } on FirebaseAuthException catch (e)
            {
             if (e.code == 'user-not-found') {
-              showDialog(context: context, builder: (BuildContext) {
-                Future.delayed(const Duration(seconds: 3)
-                );
-                return const AlertDialog(
-                  title: Text('No user found for that email.'),
-                );
-              });
               setState(() {
-                  Loader = false;
-                });
+                Loader=false;
+              });
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No user found for that email.')));
+
             } else if (e.code == 'wrong-password') {
-              showDialog(context: context, builder: (BuildContext) {
-                Future.delayed(const Duration(seconds: 3)
-                );
-                return const AlertDialog(
-                  title: Text('Wrong password provided for that user.'),
-                );
-                
-              });
               setState(() {
                   Loader = false;
                 });
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Wrong password provided for that user.')));
             }
           }
   }
@@ -70,6 +63,7 @@ class _LoginViewState extends State<LoginView> {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
+            
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 20),
@@ -83,49 +77,68 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               Container(
-              margin: const EdgeInsets.all(10),
-              color: const Color.fromARGB(255, 205, 204, 204),
-              child: TextField(
-                cursorColor: Colors.amber,
-                controller: emailController,
-                decoration: const InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 20),
-                hintText: 'Enter your email here',
+                margin: const EdgeInsets.only(left: 15,right: 15),
+                child: Form(
+                    key: _loginKey,
+                    child: Column(
+                      children: [
+                        TextFormField(     
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.only(left: 5),
+                            hintText: 'Enter Email'
+                          ),
+                          cursorColor: Colors.amber,
+                          validator: (value) {
+                            if (value==null || value.isEmpty) {
+                              return 'Enter this field';
+                            }
+                          },
+                        ),
+                        TextFormField(
+                          controller: passwordController,
+                          obscureText: true,
+                          cursorColor: Colors.amber,
+                          decoration: const InputDecoration(
+                            contentPadding: const EdgeInsets.only(left: 5),
+                            hintText: 'Enter Password'
+                          ),
+                          validator: (value) {
+                            if (value==null || value.isEmpty) {
+                              return 'Enter this field';
+                            }
+                          },
+                        ),
+                        
+                        
+                      ],
+                    ),
+                  ),
               ),
-              )
-              ),
-              Container(
-              margin: const EdgeInsets.all(10),
-              color: const Color.fromARGB(255, 205, 204, 204),
-              child: TextField(
-                cursorColor: Colors.amber,
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  contentPadding: EdgeInsets.only(left: 20),
-                  hintText: 'Enter your password here'
-                ),
-              )
+
+              const SizedBox(
+                height: 20,
               ),
 
               ElevatedButton(onPressed: () {
-                login();
-              },
-              style:const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.amber)
-                ),
-              child: Container( 
-                margin: const EdgeInsets.only(left: 20,right: 20),
-                width: 320,
-                height: 50,
-                child: const Center(child: Text('Login'))),
-                
-              ),
+                if (_loginKey.currentState!.validate()) {
+                  login();
+                }
+                        },
+                        style:const ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(Colors.amber)
+                          ),
+                        child: Container( 
+                          margin: const EdgeInsets.only(left: 20,right: 20),
+                          width: 320,
+                          height: 50,
+                          child: const Center(child: Text('Login'))),
+                        ),
 
-
+              //text button
               InkWell(
                 onTap:() {
-                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> RegisterView())); 
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> FormsView())); 
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 20),

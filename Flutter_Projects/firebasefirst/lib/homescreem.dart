@@ -7,14 +7,6 @@ class HomeView extends StatelessWidget {
   final String UserName;
   const HomeView({super.key, required this.UserName});
 
-  adduser(){
-    FirebaseFirestore.instance.collection('user').add({
-      "name" : 'Fariz',
-      "age" : 'hello'
-      }).then((value) => print('sucessfull')).
-      onError((error, stackTrace) => print('Unsucessfull'));
-  }
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -117,19 +109,78 @@ class HomeView extends StatelessWidget {
           //       )
 
 
-          ElevatedButton(onPressed: (){
-            adduser();
-          },
-                         child: const Text("Add user details")),
-
-          Drawer(
-            child: Container(
-              child: Text('hey'),
+        ],
+      ),
+      drawer: Drawer(
+            child: ListView(
+              children: [
+                Container(
+                  height: 150,
+                  width: double.maxFinite,
+                  color: Colors.amber,
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blueAccent,
+                    ),
+                    title: Text('Fariz Farooqui'),
+                    subtitle: Text('Active'),
+                  ),
+                ),
+                ExpansionTile(
+                  title: Text('Account details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                  title: Text('Contact details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                    title: Text('Data'),
+                    onExpansionChanged: (value) => true,
+                    children: [
+                      Container(
+                      margin: EdgeInsets.all(10),
+                      child: Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                    ],
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const ListTile(
+                        title: Text('Settings'),
+                        trailing: Icon(Icons.settings),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                        Navigator.pop(context);
+                      },
+                      child: const ListTile(
+                        title: Text('Logout'),
+                        trailing: Icon(Icons.logout),
+                      ),
+                    )
+              ],
             ),
           )
-
-        ],
-      )
+          ,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasefirst/homescreem.dart';
+import 'package:firebasefirst/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,11 +25,28 @@ class _FormsViewState extends State<FormsView> {
 
   List usersNames = [];
   
+    storeUserData(){
+    FirebaseFirestore.instance.collection('user').add({
+      "Name" : nameController.text,
+      "Contact" : contactController.text,
+      "Email" : emailController.text,
+      "ComfirmPassword" : comfirmPasswordController.text,
+      }).then((value) => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:  Text('Successfully Sign Inn'))));
+  }
+
+  bool Circular_Loader = false;
 
   signup()async{
 
+            setState(() {
+              Circular_Loader = true;
+            });
+
             if (createPasswordController.text!=comfirmPasswordController.text) {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password does not match')));
+              setState(() {
+              Circular_Loader = false;
+            });
               return exitCode;
             }
 
@@ -37,9 +55,10 @@ class _FormsViewState extends State<FormsView> {
             email: emailController.text,
             password: comfirmPasswordController.text,
             );
-            FirebaseFirestore.instance.collection('user').add( 
-              {"Name" : nameController.text},
-            );
+            storeUserData();
+            setState(() {
+              Circular_Loader = false;
+            });
           // ignore: use_build_context_synchronously, non_constant_identifier_names
           Navigator.push(context, MaterialPageRoute(builder: (Context)=>  HomeView(UserName: nameController.text)));
           
@@ -47,11 +66,20 @@ class _FormsViewState extends State<FormsView> {
         on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Make Stronger Password !')));
+            setState(() {
+              Circular_Loader = false;
+            });
           }
            else if (e.code == 'email-already-in-use') {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Email already in use !')));
+            setState(() {
+              Circular_Loader = false;
+            });
           }
         } catch (e) {
+          setState(() {
+              Circular_Loader = false;
+            });
           print(e);
         }
   }
@@ -160,6 +188,21 @@ class _FormsViewState extends State<FormsView> {
                       fontSize:16
                     ),
                     ))),
+                   ),
+
+                //text button
+                InkWell(
+                onTap:() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> LoginView())); 
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  child: const Text('Already have an account? Login !'))),
+
+                  
+                  //loader 
+                  if(Circular_Loader) const CircularProgressIndicator(
+                    color: Colors.amber,
                    )
                 ], 
               )
