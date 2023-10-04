@@ -5,19 +5,23 @@ import 'package:flutter/material.dart';
 import 'loginscreen.dart';
 
 class GetUserdata extends StatelessWidget {
-  const GetUserdata({super.key});
+
+  final String documentId;
+
+  const GetUserdata({super.key, required this.documentId});
 
   @override
   Widget build(BuildContext context) {
 
-    final String DocumentId;
     CollectionReference user = FirebaseFirestore.instance.collection('user');
 
     return FutureBuilder<DocumentSnapshot>(
-      future: user.firestore.collection('user').{'userId'}.get() ,
+      future: user.doc(documentId).get() ,
       builder:(BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text("Something went wrong");
+          return Container(
+            color: Colors.white,
+            child: Text("Something went wrong"));
         }
 
         if (snapshot.hasData && !snapshot.data!.exists) {
@@ -52,11 +56,11 @@ class GetUserdata extends StatelessWidget {
                   ],
                   ),
                   ExpansionTile(
-                  title: Text('Contact details'),
+                  title: const Text('Contact details'),
                   onExpansionChanged: (value) => true,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       alignment: Alignment.topLeft,
                       child: Text('Phone No :${data['Contact']} \nEmail : ${data['Email']}'),
                     )
