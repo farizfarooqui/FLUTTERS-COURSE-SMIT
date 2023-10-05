@@ -25,93 +25,16 @@ class HomeView extends StatelessWidget {
         ],
       ),
       backgroundColor: const Color.fromARGB(255, 240, 215, 190),
-      body: Column(
+      body: const Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (BuildContext , int) {
-              return Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    color: const Color.fromARGB(137, 246, 62, 62),
-                    height: 200,
-                    width: 200,
-                    child: const ListTile(
-                      title: Text('Product 1'),
-                      subtitle: Text('\$2.00'),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 40,top: 100),
-                    height: 100,
-                    width: 160,
-                    color: Colors.red,
-                  ),
-                ],
-              );
-            }),
-          ),
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (BuildContext , int) {
-              return Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    color: const Color.fromARGB(137, 246, 62, 62),
-                    height: 200,
-                    width: 200,
-                    child: const ListTile(
-                      title: Text('Product 1'),
-                      subtitle: Text('\$2.00'),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 40,top: 100),
-                    height: 100,
-                    width: 160,
-                    color: Colors.blue,
-                  ),
-                ],
-              );
-            }),
-          ),
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (BuildContext , int) {
-              return Stack(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(20),
-                    color: const Color.fromARGB(137, 246, 62, 62),
-                    height: 200,
-                    width: 200,
-                    child: const ListTile(
-                      title: Text('Product 1'),
-                      subtitle: Text('\$2.00'),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 40,top: 100),
-                    height: 100,
-                    width: 160,
-                    color: Colors.pink,
-                  ),
-                ],
-              );
-            }),
-          ),
-
+          Icon(Icons.home,size: 60,),
+          Text('Home', style: TextStyle(fontSize: 20),),
         ],
-      ),
-      drawer: GetUserdata(documentId: '' )
+      )),
+         
+      drawer: GetUserdata(documentId: 'H7lTxmaRU9ZuWVYoVWyE' )
 
 
           );
