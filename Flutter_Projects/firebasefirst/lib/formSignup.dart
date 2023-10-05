@@ -28,11 +28,17 @@ class _FormsViewState extends State<FormsView> {
 storeUserData() async {
   CollectionReference userCollection = FirebaseFirestore.instance.collection('user');
 
+  final currentTime = DateTime.now();
+    // Extract hours and minutes
+    final currentHour = currentTime.hour;
+    final currentMinute = currentTime.minute;
+
   DocumentReference documentReference = await userCollection.add({
     "Name": nameController.text,
     "Contact": contactController.text,
     "Email": emailController.text,
     "ConfirmPassword": comfirmPasswordController.text,
+    "time": '$currentHour:$currentMinute' ,
   });
 
   String documentId = documentReference.id; // Get the auto-generated document ID

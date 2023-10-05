@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/get_user_data.dart';
+import 'package:firebasefirst/usersList.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -15,6 +15,14 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: Text('Hey ${UserName}'),
         backgroundColor: Colors.amber,
+        actions: [
+          IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> UserListView()));
+
+            },
+            icon: Icon(Icons.person))
+        ],
       ),
       backgroundColor: const Color.fromARGB(255, 240, 215, 190),
       body: Column(
@@ -103,7 +111,7 @@ class HomeView extends StatelessWidget {
 
         ],
       ),
-      drawer: GetUserdata(documentId: '')
+      drawer: GetUserdata(documentId: '' )
 
 
           );

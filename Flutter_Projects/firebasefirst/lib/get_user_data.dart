@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'loginscreen.dart';
 
 class GetUserdata extends StatelessWidget {
@@ -65,12 +64,12 @@ class GetUserdata extends StatelessWidget {
                   ],
                   ),
                   ExpansionTile(
-                    title: Text('Data'),
+                    title: const Text('Data'),
                     onExpansionChanged: (value) => true,
                     children: [
                       Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
                     ),
                     Container(
                       margin: const EdgeInsets.all(10),
@@ -99,7 +98,7 @@ class GetUserdata extends StatelessWidget {
             ),
           );
         }
-        return Text("loading");
+        return const Text("loading");
       },
     );
   }
