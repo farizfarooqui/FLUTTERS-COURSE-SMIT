@@ -33,7 +33,7 @@ class HomeView extends StatelessWidget {
           Text('Home', style: TextStyle(fontSize: 20),),
         ],
       )),
-         
+
       drawer: GetUserdata(documentId: 'H7lTxmaRU9ZuWVYoVWyE' )
 
 
