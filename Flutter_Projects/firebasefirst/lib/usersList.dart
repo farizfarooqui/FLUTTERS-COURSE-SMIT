@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 
@@ -37,15 +39,10 @@ class _UserListViewState extends State<UserListView> {
               return  ListTile(
                 leading: const Icon(Icons.person),
                 title: Text(data[index]['Name']+',' +data[index]['Age']+' Years old'),
-                // title: Text(data[index].id),
-                subtitle: Text(data[index]['Email']),
+                subtitle: Text(data[index]['Id']),
 
                 trailing: IconButton(
                   onPressed: (){
-                    FirebaseFirestore.instance.collection('user').doc(data[index]['userId']).delete();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Account deleted successfully')),
-                    );
                   }, 
                   icon: const Icon(Icons.delete , color: Colors.red,)),
               );

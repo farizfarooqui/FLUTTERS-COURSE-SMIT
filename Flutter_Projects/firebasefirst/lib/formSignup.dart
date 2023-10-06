@@ -18,36 +18,11 @@ class _FormsViewState extends State<FormsView> {
 
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
-  TextEditingController contactController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController createPasswordController = TextEditingController();
   TextEditingController comfirmPasswordController = TextEditingController();
 
   List usersNames = [];
-  
-storeUserData() async {
-  CollectionReference userCollection = FirebaseFirestore.instance.collection('user');
-
-
-
-  DocumentReference documentReference = await userCollection.add({
-    "Name": nameController.text,
-    "Age" : ageController.text,
-    "Contact": contactController.text,
-    "Email": emailController.text,
-    "ConfirmPassword": comfirmPasswordController.text 
-  });
-
-  String documentId = documentReference.id; // Get the auto-generated document ID
-
-  // Update the document with the generated ID
-  await documentReference.update({"userId": documentId});
-
-  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-    content: Text('Successfully Signed In'),
-  ));
-}
-
 
   bool Circular_Loader = false;
 
@@ -70,7 +45,18 @@ storeUserData() async {
             email: emailController.text,
             password: comfirmPasswordController.text,
             );
-            storeUserData();
+
+            //Storing the data in the firestore
+            FirebaseFirestore.instance.collection('user').doc(credential.user!.uid).set({
+              "Name": nameController.text,
+              "Age" : ageController.text,
+              "Email": emailController.text,
+              "ConfirmPassword": comfirmPasswordController.text,
+              "Id" : credential.user!.uid
+            });
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text('Successfully Signed In'),
+            ));
             setState(() {
               Circular_Loader = false;
             });
@@ -153,18 +139,6 @@ storeUserData() async {
                       },
                       textCapitalization: TextCapitalization.characters,
                       controller: ageController,
-                    ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Enter contact'
-                      ),
-                      validator: (value) {
-                        if (value==null || value.isEmpty) {
-                          return 'Enter this field';
-                        }
-                        return null;
-                      },
-                      controller: contactController,
                     ),
                     TextFormField(
                       decoration: const InputDecoration(

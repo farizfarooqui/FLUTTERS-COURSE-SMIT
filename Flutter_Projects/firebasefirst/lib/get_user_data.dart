@@ -18,11 +18,149 @@ class GetUserdata extends StatelessWidget {
       future: user.doc(documentId).get() ,
       builder:(BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return const Text("Something went wrong");
+          return Drawer(
+            child: ListView(
+              children: [
+                Container(
+                  height: 150,
+                  width: double.maxFinite,
+                  color: Colors.amber,
+                  child: const ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Color.fromARGB(255, 113, 161, 244),
+                    ),
+                    title: Text('loading'),
+                    subtitle: Text('loading'),
+                  ),
+                ),
+                ExpansionTile(
+                  title: const Text('Account details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                  title: const Text('Contact details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      alignment: Alignment.topLeft,
+                      child: const Text('Email : Loader'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                    title: const Text('Data'),
+                    onExpansionChanged: (value) => true,
+                    children: [
+                      Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text( 'Loading Years old' + '\nInformation on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                    ],
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const ListTile(
+                        title: Text('Settings'),
+                        trailing: Icon(Icons.settings),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=>const LoginView() ));
+                      },
+                      child: const ListTile(
+                        title: Text('Logout'),
+                        trailing: Icon(Icons.logout),
+                      ),
+                    )
+              ],
+            ),
+          );
         }
 
         if (snapshot.hasData && !snapshot.data!.exists) {
-          return const Text("Document does not exist");
+          return Drawer(
+            child: ListView(
+              children: [
+                Container(
+                  height: 150,
+                  width: double.maxFinite,
+                  color: Colors.amber,
+                  child: const ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Color.fromARGB(255, 113, 161, 244),
+                    ),
+                    title: Text('loading'),
+                    subtitle: Text('loading'),
+                  ),
+                ),
+                ExpansionTile(
+                  title: const Text('Account details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                  title: const Text('Contact details'),
+                  onExpansionChanged: (value) => true,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      alignment: Alignment.topLeft,
+                      child: const Text('Email : Loader'),
+                    )
+                  ],
+                  ),
+                  ExpansionTile(
+                    title: const Text('Data'),
+                    onExpansionChanged: (value) => true,
+                    children: [
+                      Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text( 'Loading Years old' + '\nInformation on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                    )
+                    ],
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const ListTile(
+                        title: Text('Settings'),
+                        trailing: Icon(Icons.settings),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=>const LoginView() ));
+                      },
+                      child: const ListTile(
+                        title: Text('Logout'),
+                        trailing: Icon(Icons.logout),
+                      ),
+                    )
+              ],
+            ),
+          );
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
@@ -36,7 +174,7 @@ class GetUserdata extends StatelessWidget {
                   color: Colors.amber,
                   child: ListTile(
                     leading: const CircleAvatar(
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: Color.fromARGB(255, 113, 161, 244),
                     ),
                     title: Text(data['Name']),
                     subtitle: Text(data['Email']),
@@ -59,7 +197,7 @@ class GetUserdata extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.all(10),
                       alignment: Alignment.topLeft,
-                      child: Text('Phone No :${data['Contact']} \nEmail : ${data['Email']}'),
+                      child: Text('Email : ${data['Email']}'),
                     )
                   ],
                   ),
@@ -69,7 +207,7 @@ class GetUserdata extends StatelessWidget {
                     children: [
                       Container(
                       margin: const EdgeInsets.all(10),
-                      child: const Text('Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
+                      child: Text( '${data['Age']} Years old' + '\nInformation on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc Information on how to contact a person or entity, typically including a telephone number, address etc'),
                     ),
                     Container(
                       margin: const EdgeInsets.all(10),
@@ -103,3 +241,4 @@ class GetUserdata extends StatelessWidget {
     );
   }
 }
+
