@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasefirst/get_user_data.dart';
 import 'package:firebasefirst/usersList.dart';
 import 'package:flutter/material.dart';
@@ -7,21 +6,20 @@ class HomeView extends StatelessWidget {
   
   final String UserName;
   const HomeView({super.key, required this.UserName});
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       
       appBar: AppBar(
-        title: Text('Hey ${UserName}'),
+        title: Text('Hey $UserName'),
         backgroundColor: Colors.amber,
         actions: [
           IconButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> UserListView()));
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> const UserListView()));
 
             },
-            icon: Icon(Icons.person))
+            icon: const Icon(Icons.person))
         ],
       ),
       backgroundColor: const Color.fromARGB(255, 240, 215, 190),
@@ -34,8 +32,8 @@ class HomeView extends StatelessWidget {
         ],
       )),
 
-      drawer: GetUserdata(documentId: 'H7lTxmaRU9ZuWVYoVWyE' )
-
+      drawer: const GetUserdata(documentId:'' )
+ 
 
           );
   }

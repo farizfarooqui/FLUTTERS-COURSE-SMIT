@@ -11,7 +11,7 @@ class _FutureAndStreamState extends State<FutureAndStream> {
    
   int value=50;
   Future <int> increment()async{
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
        return value+10;
   }
 
@@ -27,7 +27,7 @@ class _FutureAndStreamState extends State<FutureAndStream> {
               child: FutureBuilder(
                 future: increment(),
                 builder: (context , Snapshot){
-                  return Text('Future : $value ',style: TextStyle(fontSize: 30),);
+                  return Text('Future : $value ',style: const TextStyle(fontSize: 30),);
                 }
               )
               

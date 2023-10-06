@@ -32,9 +32,10 @@ storeUserData() async {
 
   DocumentReference documentReference = await userCollection.add({
     "Name": nameController.text,
+    "Age" : ageController.text,
     "Contact": contactController.text,
     "Email": emailController.text,
-    "ConfirmPassword": comfirmPasswordController.text
+    "ConfirmPassword": comfirmPasswordController.text 
   });
 
   String documentId = documentReference.id; // Get the auto-generated document ID
@@ -103,133 +104,157 @@ storeUserData() async {
     return  
     Scaffold(
       body: 
-        Column( 
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-           Container(
-                margin: const EdgeInsets.only(bottom: 20),
-                child: const Center(
-                  child: Text('SIGN UP !',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w500
-                  ),
+        SingleChildScrollView(
+          child: Column( 
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 150,
+              ),
+             Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  child: const Center(
+                    child: Text('SIGN UP !',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
                   ),
                 ),
-              ),
-          Container(
-            margin: const EdgeInsets.only(left: 10,right: 10,top: 20),
-            child: Form(
-              key: _formkey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Enter Full Name'
+            Container(
+              margin: const EdgeInsets.only(left: 10,right: 10,top: 20),
+              child: Form(
+                key: _formkey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Full Name'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      controller: nameController,
                     ),
-                    validator: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'Enter this field';
-                      }
-                      return null;
-                    },
-                    textCapitalization: TextCapitalization.characters,
-                    controller: nameController,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Enter contact'
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Age'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      textCapitalization: TextCapitalization.characters,
+                      controller: ageController,
                     ),
-                    validator: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'Enter this field';
-                      }
-                      return null;
-                    },
-                    controller: contactController,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Enter Email'
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Enter contact'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      controller: contactController,
                     ),
-                    validator: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'Enter this field';
-                      }
-                      return null;
-                    },
-                    controller: emailController,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Create Password'
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Email'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      controller: emailController,
                     ),
-                    validator: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'Enter this field';
-                      }
-                      return null;
-                    },
-                    controller: createPasswordController,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Comfirm Password'
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Create Password'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      controller: createPasswordController,
                     ),
-                    validator: (value) {
-                      if (value==null || value.isEmpty) {
-                        return 'Enter this field';
-                      }
-                      return null;
-                    },
-                    controller: comfirmPasswordController,
-                  ),
-
-                  const SizedBox(
-                    height: 30,
-                  ),
-
-                  //submit Buttom
-                  ElevatedButton(onPressed: () {
-                    if (_formkey.currentState!.validate()) {
-                      signup();
-                    }
-                  },
-                    style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.amber)
-                   ),
-                   child: const SizedBox(
-                    height: 60,
-                    width: double.maxFinite,
-                    child: Center(child: Text('SUBMIT !!',
-                    style: TextStyle(
-                      fontSize:16
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Comfirm Password'
+                      ),
+                      validator: (value) {
+                        if (value==null || value.isEmpty) {
+                          return 'Enter this field';
+                        }
+                        return null;
+                      },
+                      controller: comfirmPasswordController,
                     ),
-                    ))),
-                   ),
-
-                //text button
-                InkWell(
-                onTap:() {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> LoginView())); 
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  child: const Text('Already have an account? Login !'))),
-
-                  
-                  //loader 
-                  if(Circular_Loader) const CircularProgressIndicator(
-                    color: Colors.amber,
-                   )
-                ], 
-              )
-              ),
-          ),
-
         
-        ],),
+                    const SizedBox(
+                      height: 30,
+                    ),
+        
+                    //submit Buttom
+                    ElevatedButton(onPressed: () {
+                      if (_formkey.currentState!.validate()) {
+                        signup();
+                      }
+                    },
+                      style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.amber)
+                     ),
+                     child: const SizedBox(
+                      height: 60,
+                      width: double.maxFinite,
+                      child: Center(child: Text('SUBMIT !!',
+                      style: TextStyle(
+                        fontSize:16
+                      ),
+                      ))),
+                     ),
+        
+                  //text button
+                  InkWell(
+                  onTap:() {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> const LoginView())); 
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 44,
+                      ),
+                      Text('Already have an account? ',style: TextStyle(fontSize: 15),),
+                      Text('Login',style: TextStyle(fontSize: 15,color: Colors.amber,fontWeight: FontWeight.w600))
+                    ],
+                  )),
+        
+                    
+                    //loader 
+                    if(Circular_Loader) const CircularProgressIndicator(
+                      color: Colors.amber,
+                     )
+                  ], 
+                )
+                ),
+            ),
+        
+          
+          ],),
+        ),
     );
   }
 }

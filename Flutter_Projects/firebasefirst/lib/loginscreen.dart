@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/formSignup.dart';
 import 'package:firebasefirst/homescreem.dart';
-import 'package:firebasefirst/registerscreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -94,6 +92,7 @@ class _LoginViewState extends State<LoginView> {
                             if (value==null || value.isEmpty) {
                               return 'Enter this field';
                             }
+                            return null;
                           },
                         ),
                         TextFormField(
@@ -108,6 +107,7 @@ class _LoginViewState extends State<LoginView> {
                             if (value==null || value.isEmpty) {
                               return 'Enter this field';
                             }
+                            return null;
                           },
                         ),
                       ],
@@ -135,13 +135,20 @@ class _LoginViewState extends State<LoginView> {
                         ),
 
               //text button
-              InkWell(
+               InkWell(
                 onTap:() {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> FormsView())); 
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> const FormsView())); 
                 },
-                child: Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  child: const Text('Dont have a account? Create account!'))),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 44,
+                    ),
+                    Text('Dont have a account? ',style: TextStyle(fontSize: 15),),
+                    Text('Create account!',style: TextStyle(fontSize: 15,color: Colors.amber,fontWeight: FontWeight.w600))
+                  ],
+                )),
 
               if (Loader) const LoaderWidget(),
       
@@ -160,10 +167,8 @@ class LoaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child: const CircularProgressIndicator(
-        color: Color.fromARGB(255, 249, 202, 61),
-      ),
+    return  const CircularProgressIndicator(
+      color: Color.fromARGB(255, 249, 202, 61),
     );
   }
 }
