@@ -34,7 +34,10 @@ class _LoginViewState extends State<LoginView> {
             setState(() {
                   Loader = false;
                 });
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> HomeView(UserName: emailController.text,)));
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> 
+            HomeView(UserName: emailController.text
+            )));
+
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Welcome Back!')));
             
           } on FirebaseAuthException catch (e)

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/get_user_data.dart';
 import 'package:firebasefirst/usersList.dart';
