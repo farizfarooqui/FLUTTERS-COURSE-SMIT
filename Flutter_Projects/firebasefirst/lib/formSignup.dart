@@ -16,6 +16,16 @@ class FormsView extends StatefulWidget {
 
 class _FormsViewState extends State<FormsView> { 
 
+  @override
+ dispose() {
+   nameController.clear();
+   ageController.clear();
+   emailController.clear();
+   createPasswordController.clear();
+   comfirmPasswordController.clear();
+  super.dispose();
+  }
+
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -60,6 +70,7 @@ class _FormsViewState extends State<FormsView> {
             setState(() {
               Circular_Loader = false;
             });
+            dispose();
           // ignore: use_build_context_synchronously, non_constant_identifier_names
           Navigator.push(context, MaterialPageRoute(builder: (Context)=>  HomeView(UserName: nameController.text)));
           

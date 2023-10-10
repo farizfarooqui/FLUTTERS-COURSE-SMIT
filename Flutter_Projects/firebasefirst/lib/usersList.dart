@@ -30,19 +30,18 @@ class _UserListViewState extends State<UserListView> {
           if (snapshot.hasError) {
             return const Text('Error 404');
           }
-
-          var data = snapshot.data!.docs;
           return ListView.builder(
-            itemCount: data.length,
+            itemCount: snapshot.data!.docs.length,
             itemBuilder: (BuildContext , int index ) {
+              DocumentSnapshot data = snapshot.data!.docs[index];
               return  ListTile(
                 leading: const Icon(Icons.person),
-                title: Text(data[index]['Name']+',' +data[index]['Age']+' Years old'),
-                subtitle: Center(child: Text(data[index]['Id'])),
+                title: Text(data['Name']+', '+ data['Age']+' Years old'),
+                subtitle: Text(data.id),
 
                 trailing: IconButton(
                   onPressed: (){
-                    FirebaseFirestore.instance.collection('user').doc(data[index]['Name']).delete();
+                    FirebaseFirestore.instance.collection('user').doc(data['Name']).delete();
                     ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Account deleted successfully')),
                     );

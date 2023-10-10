@@ -16,6 +16,13 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
 
+  @override
+   dispose() {
+    emailController.clear();
+    passwordController.clear();
+    super.dispose();
+  }
+
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -34,11 +41,12 @@ class _LoginViewState extends State<LoginView> {
             setState(() {
                   Loader = false;
                 });
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=> 
-            HomeView(UserName: emailController.text
+                dispose();
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=> 
+             HomeView(UserName: emailController.text
             )));
 
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Welcome Back!')));
+             ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text('Welcome Back!')));
             
           } on FirebaseAuthException catch (e)
            {

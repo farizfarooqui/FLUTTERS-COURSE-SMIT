@@ -87,7 +87,7 @@ class GetUserdata extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         FirebaseAuth.instance.signOut();
-                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext)=>const LoginView() ));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=>const LoginView() ));
                       },
                       child: const ListTile(
                         title: Text('Logout'),
