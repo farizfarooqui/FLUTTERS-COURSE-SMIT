@@ -32,14 +32,15 @@ class _LandingPageViewState extends State<LandingPageView> {
         shadowColor: Colors.transparent,
         backgroundColor: AppColors.blueShade_1,
         title: const Text('Hey, Fariz', textAlign: TextAlign.left),
-        actions: [Stack(
+        actions: [
+          Stack(
           children: [
             IconButton(onPressed: () { 
               Navigator.push(context,
               MaterialPageRoute(builder: (context) => const MyCard()));
             }, icon: const Icon(Icons.shopping_bag_outlined)),
             Container(
-              margin: EdgeInsets.only(left: 30,top: 5),
+              margin: const EdgeInsets.only(left: 30,top: 5),
               alignment: Alignment.topRight,
               child:
               Text( MyCardItems.length.toString(),style: TextStyle(
