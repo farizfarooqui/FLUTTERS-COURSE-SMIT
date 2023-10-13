@@ -116,7 +116,7 @@ class _HomeViewState extends State<HomeView> {
                                   maxWidth: MediaQuery.of(context).size.width - 85,
                                 ),
                                 child: Text(
-                                  'Motivation: ${laureate.motivation}',
+                                  'Motivation: ${laureate.motivation} \n',
                                   style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,

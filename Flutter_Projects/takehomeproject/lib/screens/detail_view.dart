@@ -33,18 +33,21 @@ class DetailView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.25,
               width: double.maxFinite,
               color: const Color.fromARGB(255, 251, 216, 111),
-              child: Column(
+               child: Column(
                 children: [
                   Icon(
                     Icons.person,
                     size: MediaQuery.of(context).size.height * 0.17,
                   ),
-                  Text(
-                    //how to access fullname feild of laureates of nobel prizes
-                    'nobelPrize.laureates.fullname.toString()',
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.03,
-                      fontWeight: FontWeight.w500,
+                  Center(
+                    child: Text(
+                      //how to access fullname feild of laureates of nobel prizes
+                      // 'nobelPrize.laureates.fullname.toString()',
+                      nobelPrize.laureates!.first.fullName.toString() ,
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.03,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   )
                 ],
@@ -224,7 +227,8 @@ class DetailView extends StatelessWidget {
                             maxWidth: MediaQuery.of(context).size.width - 100),
                         child: Text(
                           //how to access Motivation feild of laureates of nobel prizes
-                          'nobelPrize.laureates.Motivation.toString()',
+                          // 'nobelPrize.laureates.Motivation.toString()',
+                          nobelPrize.laureates!.first.motivation.toString() ,
                           textAlign: TextAlign.left,
                           style: const TextStyle(
                               fontWeight: FontWeight.w300, 

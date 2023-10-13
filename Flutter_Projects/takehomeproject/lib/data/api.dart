@@ -15,6 +15,7 @@ class Api {
           data.map((e) => NobelPrize.fromJson(e)).toList().cast<NobelPrize>();
       nobelPrizes.addAll(result);
       return nobelPrizes;
+      
     }
     return [];
   }

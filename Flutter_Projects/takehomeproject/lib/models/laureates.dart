@@ -25,4 +25,6 @@ class Laureates {
       motivation: json['motivation'],
     );
   }
+
+  static void addAll(result) {}
 }
