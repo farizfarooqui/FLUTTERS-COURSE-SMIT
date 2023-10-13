@@ -2,6 +2,7 @@ import 'package:figma_project/home_view.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
+// ignore: must_be_immutable
 class Restaurant extends StatelessWidget {
   final String restaurantName; 
 
