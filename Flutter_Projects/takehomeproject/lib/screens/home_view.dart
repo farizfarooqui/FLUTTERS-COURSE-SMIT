@@ -33,7 +33,6 @@ class _HomeViewState extends State<HomeView> {
           )),
           actions: [
             IconButton(onPressed: (){
-              fetchData();
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeView()));
             },
              icon: const Icon(Icons.replay_rounded,
@@ -55,12 +54,14 @@ class _HomeViewState extends State<HomeView> {
                               )));
                 },
                 child: Container(
+                  width: double.maxFinite,
                   margin: const EdgeInsets.only(top: 10),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                          margin: const EdgeInsets.only(right: 8,left: 8),
+                        width: MediaQuery.of(context).size.width*0.19,
+                        padding: const EdgeInsets.all(2),
                           child: const CircleAvatar(
                             child: Icon(
                               Icons.person,
@@ -113,7 +114,7 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Container(
                                 constraints: BoxConstraints(
-                                  maxWidth: MediaQuery.of(context).size.width - 85,
+                                  maxWidth: MediaQuery.of(context).size.width*0.80
                                 ),
                                 child: Text(
                                   'Motivation: ${laureate.motivation} \n',

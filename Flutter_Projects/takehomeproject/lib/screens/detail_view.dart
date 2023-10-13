@@ -39,15 +39,12 @@ class DetailView extends StatelessWidget {
                     Icons.person,
                     size: MediaQuery.of(context).size.height * 0.17,
                   ),
-                  Center(
-                    child: Text(
-                      //how to access fullname feild of laureates of nobel prizes
-                      // 'nobelPrize.laureates.fullname.toString()',
-                      nobelPrize.laureates!.first.fullName.toString() ,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.03,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  Text(
+                    nobelPrize.laureates!.first.fullName.toString() ,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.03,
+                      fontWeight: FontWeight.w500,
                     ),
                   )
                 ],
@@ -75,7 +72,10 @@ class DetailView extends StatelessWidget {
                     nobelPrize.awardYear.toString(),
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontWeight: FontWeight.w300, fontSize: 13),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                   ),
                 ],
               ),
@@ -99,7 +99,10 @@ class DetailView extends StatelessWidget {
                     nobelPrize.category.toString(),
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontWeight: FontWeight.w300, fontSize: 13),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                   ),
                 ],
               ),
@@ -126,9 +129,10 @@ class DetailView extends StatelessWidget {
                       nobelPrize.categoryFullName.toString(),
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w300, 
-                          fontSize: 13
-                          ),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                     ),
                   ),
                 ],
@@ -151,7 +155,11 @@ class DetailView extends StatelessWidget {
                   Text(
                     nobelPrize.dateAwarded.toString(),
                     textAlign: TextAlign.left,
-                    style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 13),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                   ),
                 ],
               ),
@@ -173,7 +181,11 @@ class DetailView extends StatelessWidget {
                   Text(
                     nobelPrize.prizeAmount.toString(),
                     textAlign: TextAlign.left,
-                    style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 13),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                   ),
                 ],
               ),
@@ -195,7 +207,11 @@ class DetailView extends StatelessWidget {
                   Text(
                     nobelPrize.prizeAmountAdjusted.toString(),
                     textAlign: TextAlign.left,
-                    style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 13),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                   ),
                 ],
               ),
@@ -231,8 +247,10 @@ class DetailView extends StatelessWidget {
                           nobelPrize.laureates!.first.motivation.toString() ,
                           textAlign: TextAlign.left,
                           style: const TextStyle(
-                              fontWeight: FontWeight.w300, 
-                              fontSize: 13),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: Colors.grey
+                        ),
                         ),
                       ),
                     ],
