@@ -24,15 +24,6 @@ class _HomeViewState extends State<HomeView> {
       _future = Api.fetchNobelPrizes();
     });
   }
-
-  List icon = [
-    'Icons.tips_and_updates_rounded',
-    'Icons.travel_explore_sharp',
-    'Icons.auto_fix_high',
-    'Icons.star',
-    'Icons.star'
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

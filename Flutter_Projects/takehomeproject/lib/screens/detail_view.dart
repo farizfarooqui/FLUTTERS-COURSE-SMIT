@@ -20,7 +20,7 @@ class DetailView extends StatelessWidget {
         backgroundColor: Colors.amber,
         title: const Center(
             child: Text(
-          'Nobel Prize Details         ',
+          'Nobel Prize Details',
           style: TextStyle(color: Colors.black),
         )),
       ),
@@ -33,14 +33,14 @@ class DetailView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.25,
               width: double.maxFinite,
               color: const Color.fromARGB(255, 251, 216, 111),
-               child: Column(
+              child: Column(
                 children: [
                   Icon(
                     Icons.person,
                     size: MediaQuery.of(context).size.height * 0.17,
                   ),
                   Text(
-                    nobelPrize.laureates!.first.fullName.toString() ,
+                    nobelPrize.laureates!.first.fullName.toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: MediaQuery.of(context).size.height * 0.03,
@@ -60,9 +60,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.calendar_today_rounded,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.calendar_today_rounded,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     'Award year: ',
                     textAlign: TextAlign.left,
@@ -74,8 +75,7 @@ class DetailView extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13,
-                        color: Colors.grey
-                        ),
+                        color: Colors.grey),
                   ),
                 ],
               ),
@@ -87,9 +87,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.category_sharp,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.category_sharp,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     ' Category: ',
                     textAlign: TextAlign.left,
@@ -101,8 +102,7 @@ class DetailView extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13,
-                        color: Colors.grey
-                        ),
+                        color: Colors.grey),
                   ),
                 ],
               ),
@@ -113,9 +113,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.text_fields_sharp,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.text_fields_sharp,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     ' Category Full Name: ',
                     textAlign: TextAlign.left,
@@ -123,16 +124,14 @@ class DetailView extends StatelessWidget {
                   ),
                   Container(
                     constraints: BoxConstraints(
-                                           maxWidth: MediaQuery.of(context).size.width*0.45
-                    ),
+                        maxWidth: MediaQuery.of(context).size.width * 0.45),
                     child: Text(
                       nobelPrize.categoryFullName.toString(),
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13,
-                        color: Colors.grey
-                        ),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Colors.grey),
                     ),
                   ),
                 ],
@@ -144,9 +143,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.calendar_month_rounded,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.calendar_month_rounded,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     ' Date Awarded:',
                     textAlign: TextAlign.left,
@@ -158,8 +158,7 @@ class DetailView extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13,
-                        color: Colors.grey
-                        ),
+                        color: Colors.grey),
                   ),
                 ],
               ),
@@ -170,9 +169,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.attach_money_sharp,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.attach_money_sharp,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     ' Prize Amount:',
                     textAlign: TextAlign.left,
@@ -184,8 +184,7 @@ class DetailView extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13,
-                        color: Colors.grey
-                        ),
+                        color: Colors.grey),
                   ),
                 ],
               ),
@@ -196,9 +195,10 @@ class DetailView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Row(
                 children: [
-                  const Icon(Icons.attach_money_sharp,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.attach_money_sharp,
+                    color: Colors.blue,
+                  ),
                   const Text(
                     ' Prize Amount Adjusted: ',
                     textAlign: TextAlign.left,
@@ -210,8 +210,7 @@ class DetailView extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13,
-                        color: Colors.grey
-                        ),
+                        color: Colors.grey),
                   ),
                 ],
               ),
@@ -223,9 +222,10 @@ class DetailView extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.message,
-                            color: Colors.blue,
-                            ),
+                  const Icon(
+                    Icons.message,
+                    color: Colors.blue,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -242,15 +242,12 @@ class DetailView extends StatelessWidget {
                         constraints: BoxConstraints(
                             maxWidth: MediaQuery.of(context).size.width - 100),
                         child: Text(
-                          //how to access Motivation feild of laureates of nobel prizes
-                          // 'nobelPrize.laureates.Motivation.toString()',
-                          nobelPrize.laureates!.first.motivation.toString() ,
+                          nobelPrize.laureates!.first.motivation.toString(),
                           textAlign: TextAlign.left,
                           style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13,
-                        color: Colors.grey
-                        ),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13,
+                              color: Colors.grey),
                         ),
                       ),
                     ],
