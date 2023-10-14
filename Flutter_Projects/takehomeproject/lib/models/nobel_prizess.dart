@@ -1,5 +1,3 @@
-
-
 import 'package:takehomeproject/models/laureates.dart';
 
 class NobelPrize {
@@ -10,7 +8,7 @@ class NobelPrize {
   int? prizeAmount;
   int? prizeAmountAdjusted;
   List<Laureates>? laureates;
-  
+
   NobelPrize({
     this.awardYear,
     this.category,

@@ -25,11 +25,20 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
+  List icon = [
+    'Icons.tips_and_updates_rounded',
+    'Icons.travel_explore_sharp',
+    'Icons.auto_fix_high',
+    'Icons.star',
+    'Icons.star'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: const Icon(Icons.workspace_premium, color: Colors.black),
         shadowColor: Colors.transparent,
         backgroundColor: Colors.amber,
         title: const Center(
@@ -50,15 +59,15 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, snapshot) {
           //error handling
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator(
+            return const Center(
+                child: CircularProgressIndicator(
               color: Colors.amber,
             ));
-          } 
-          else if (snapshot.hasError) {
+          } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
-          } 
-          else if (snapshot.hasData) {
+          } else if (snapshot.hasData) {
             final nobelPrizes = snapshot.data!;
+            //Builder widget
             return ListView.builder(
               itemCount: nobelPrizes.length,
               itemBuilder: (context, index) {
@@ -105,7 +114,7 @@ class _HomeViewState extends State<HomeView> {
                                   ),
                                 ),
                                 const Positioned(
-                                  right: 0,
+                                  right: 5,
                                   top: 0,
                                   child: Icon(
                                     Icons.arrow_forward_ios_sharp,

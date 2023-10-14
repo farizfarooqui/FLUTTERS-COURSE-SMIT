@@ -9,7 +9,8 @@ class Api {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body)['nobelPrizes'];
-      final result = data.map<NobelPrize>((e) => NobelPrize.fromJson(e)).toList();
+      final result =
+          data.map<NobelPrize>((e) => NobelPrize.fromJson(e)).toList();
       return result;
     } else {
       throw Exception('Failed to load Nobel Prizes');
