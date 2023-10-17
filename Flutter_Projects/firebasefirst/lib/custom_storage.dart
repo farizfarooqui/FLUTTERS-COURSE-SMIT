@@ -32,7 +32,7 @@ class _CustomStorageState extends State<CustomStorage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Firebase Storage")),
+        title: const Center(child: Text("Firebase Storagee")),
       ),
       body: SingleChildScrollView(
         child: Column(
