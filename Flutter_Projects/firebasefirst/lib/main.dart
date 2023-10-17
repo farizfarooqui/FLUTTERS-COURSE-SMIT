@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebasefirst/custom_storage.dart';
 import 'package:firebasefirst/firebase_options.dart';
-import 'package:firebasefirst/formSignup.dart';
-import 'package:firebasefirst/usersList.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -13,12 +12,14 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FormsView(),
+      home: CustomStorage(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
     );
   }
 }
