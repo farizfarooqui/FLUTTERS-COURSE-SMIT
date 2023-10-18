@@ -1,4 +1,7 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,14 +27,24 @@ class _CustomStorageState extends State<CustomStorage> {
   }
 
   deleteImage() async {
-    FirebaseStorage.instance.ref().child('Image').delete();
+    FirebaseStorage.instance
+        .ref()
+        .child(FirebaseFirestore.instance
+            .collection("user")
+            .doc(FirebaseAuth.instance.currentUser as String?) as String)
+        .delete();
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text('Deleted File')));
   }
 
   uploadFile() async {
-    await FirebaseStorage.instance.ref().child('Image').putFile(imageFile!);
+    await FirebaseStorage.instance
+        .ref()
+        .child(FirebaseFirestore.instance
+            .collection("user")
+            .doc(FirebaseAuth.instance.currentUser as String?) as String)
+        .putFile(imageFile!);
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text('File Uploaded')));
