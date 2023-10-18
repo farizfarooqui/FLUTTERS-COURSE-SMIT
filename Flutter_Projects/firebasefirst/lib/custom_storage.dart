@@ -23,16 +23,25 @@ class _CustomStorageState extends State<CustomStorage> {
     }
   }
 
+  deleteImage() async {
+    FirebaseStorage.instance.ref().child('Image').delete();
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('Deleted File')));
+  }
+
   uploadFile() async {
-    FirebaseStorage.instance.ref().child('Image').putFile(imageFile!);
-    print('File Uploaded');
+    await FirebaseStorage.instance.ref().child('Image').putFile(imageFile!);
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('File Uploaded')));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Firebase Storagee")),
+        title: const Center(child: Text("Firebase Storage")),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +59,12 @@ class _CustomStorageState extends State<CustomStorage> {
                 onPressed: () {
                   uploadFile();
                 },
-                child: const Text('Upload File'))
+                child: const Text('Upload File')),
+            ElevatedButton(
+                onPressed: () {
+                  deleteImage();
+                },
+                child: const Text('Delete File'))
           ],
         ),
       ),
