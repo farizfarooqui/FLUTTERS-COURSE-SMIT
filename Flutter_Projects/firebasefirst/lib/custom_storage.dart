@@ -47,7 +47,7 @@ class _CustomStorageState extends State<CustomStorage> {
         .putFile(imageFile!);
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('File Uploaded')));
+        .showSnackBar(const SnackBar(content: Text('File successfully Uploaded')));
   }
 
   @override
