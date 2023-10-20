@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasefirst/formSignup.dart';
-import 'package:firebasefirst/homescreem.dart';
+import 'package:firebasefirst/screens/formSignup.dart';
+import 'package:firebasefirst/screens/homescreem.dart';
 import 'package:flutter/material.dart';
 
 final _loginKey = GlobalKey<FormState>();

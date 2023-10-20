@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebasefirst/custom_storage.dart';
-import 'package:firebasefirst/firebase_options.dart';
+import 'package:firebasefirst/screens/custom_storage.dart';
+import 'package:firebasefirst/screens/loginscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CustomStorage(),
+      home: LoginView(),
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),

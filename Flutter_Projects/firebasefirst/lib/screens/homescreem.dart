@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasefirst/get_user_data.dart';
-import 'package:firebasefirst/usersList.dart';
+import 'package:firebasefirst/screens/get_user_data.dart';
+import 'package:firebasefirst/screens/usersList.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
