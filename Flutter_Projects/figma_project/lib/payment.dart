@@ -12,7 +12,7 @@ class MakePayment extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.black_1,
         leading: Container(
-          padding: EdgeInsets.all(6),
+          padding: const EdgeInsets.all(6),
           child: CircleAvatar(
             radius: 5,
             backgroundColor: AppColors.black_20,
@@ -33,10 +33,9 @@ class MakePayment extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-      
             //card holder number
             Container(
-              margin: EdgeInsets.only(top: 80,left: 30,right: 30),
+              margin: const EdgeInsets.only(top: 80,left: 30,right: 30),
               color: Colors.transparent,
               child: Column(
                 children: [

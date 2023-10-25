@@ -31,6 +31,8 @@ class Product {
   final String name;
   final double price;
 
+  static var productName;
+
   Product({required this.id, required this.name, required this.price});
 }
 

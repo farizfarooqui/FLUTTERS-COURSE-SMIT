@@ -1,6 +1,7 @@
 import 'package:figma_project/colors.dart';
-import 'package:figma_project/onboarding_screen.dart';
+import 'package:figma_project/landing_screen.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -8,13 +9,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoard_screen(),
-      theme: ThemeData( splashColor: AppColors.orangeShade_2),
+      home: LandingPageView(),
+      theme: ThemeData(splashColor: AppColors.orangeShade_2),
     );
   }
 }
