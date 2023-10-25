@@ -1,4 +1,4 @@
-import 'package:figma_project/payment.dart';
+import 'package:figma_project/paymentform.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
@@ -185,7 +185,7 @@ class _CheckOutState extends State<CheckOut> {
                 backgroundColor: MaterialStatePropertyAll(AppColors.blueShade_2)
               ),
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => MakePayment()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => Payment()));
               },
               child: Container(
                 alignment: Alignment.bottomCenter,
