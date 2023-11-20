@@ -12,7 +12,10 @@ class HomeScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: AppBar(
-        elevation: 0,
+        title: const Text(
+          'Hey Fariz',
+          style: TextStyle(color: Colors.orange),
+        ),
         systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarIconBrightness: Brightness.light,
             statusBarColor: Colors.transparent),
@@ -20,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 1.2 * kTextTabBarHeight, 40, 20),
+        padding: const EdgeInsets.fromLTRB(40, 1.8 * kTextTabBarHeight, 40, 20),
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
